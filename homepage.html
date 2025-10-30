@@ -143,7 +143,18 @@
             opacity: 0.9;
             margin-top: 5px;
         }
-
+        .plusbtn{
+             background: #ff8210;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 25px;
+            font-size: 28px;
+            width: 100px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
         .btn {
             background: #ff8210;
             color: white;
@@ -1015,12 +1026,12 @@
         <div class="user-info">
             <div class="avatar" id="userAvatar">G</div>
             <div>
-                <div style="font-weight: bold; color:white;" id="userName">Guest</div>
+                <div style="font-weight: bold;" id="userName">Guest</div>
                 <div style="font-size: 12px; color: gainsboro;">Sustainable Fashionista</div>
             </div>
         </div>
         <div>
-            <img src="tel.jpg" alt="app-logo" width="85px" style="display: block; margin: 0 auto;">
+            <img src="tel.jpg" alt="app-logo" width="10%" style="display: block; margin: 0 auto;">
         </div>
         <div class="credits" id="userCredits">0 ✨</div>
     </div>
@@ -1171,14 +1182,13 @@
                             <div class="sell-option-title">Sustainable Fashion Brands</div>
                             <div class="sell-option-description">50% discount for sustainable brands</div>
                         </div>
-                        <div>
-                            <button>+</button>
-                        </div>
+                        
                     </div>
                     
                     <div id="sellProducts"></div>
                     
-                    <button class="add-product-btn" onclick="showAddProductModal()">+</button>
+                    <button class="plusbtn" onclick="showAddProductModal()">+</button>
+
                 </div>
                 
                 <!-- EXCHANGE Section -->
@@ -2772,5 +2782,4 @@
         init();
     </script>
 </body>
-
 </html>
