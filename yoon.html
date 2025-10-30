@@ -13,14 +13,20 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: white;
             min-height: 100vh;
             padding-bottom: 70px;
             overflow-x: hidden;
         }
 
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+        }
+
         .header {
-            background: rgba(255, 255, 255, 0.95);
+            background: #ff8210;
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
@@ -29,6 +35,12 @@
             position: sticky;
             top: 0;
             z-index: 100;
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 10px 15px;
+            }
         }
 
         .user-info {
@@ -41,17 +53,17 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color:#ff8210;
             font-weight: bold;
         }
 
         .credits {
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-            color: white;
+            background:#f8f9fa;
+            color: brown;
             padding: 8px 15px;
             border-radius: 20px;
             font-weight: bold;
@@ -61,6 +73,20 @@
         .content {
             padding: 20px;
             padding-bottom: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 10px;
+            }
         }
 
         .view {
@@ -80,7 +106,7 @@
         }
 
         .card h2 {
-            color: #667eea;
+            color: #ff8210;
             margin-bottom: 15px;
             font-size: 20px;
         }
@@ -92,8 +118,14 @@
             margin: 15px 0;
         }
 
+        @media (max-width: 480px) {
+            .stats-grid {
+                gap: 8px;
+            }
+        }
+
         .stat-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff8210, #764ba2);
             color: white;
             padding: 15px;
             border-radius: 12px;
@@ -113,7 +145,7 @@
         }
 
         .btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: #ff8210;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -142,6 +174,18 @@
             margin-top: 15px;
         }
 
+        @media (max-width: 600px) {
+            .grid {
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .item-card {
             background: #f8f9fa;
             border-radius: 12px;
@@ -152,7 +196,7 @@
         }
 
         .item-card.selected {
-            border: 3px solid #667eea;
+            border: 3px solid #ff8210;
             background: #e8ecff;
         }
 
@@ -213,7 +257,7 @@
         }
 
         .nav-item.active {
-            color: #667eea;
+            color: #ff8210;
         }
 
         .nav-icon {
@@ -249,7 +293,7 @@
         }
 
         .modal-content h3 {
-            color: #667eea;
+            color: #ff8210;
             margin-bottom: 15px;
         }
 
@@ -272,7 +316,7 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #ff8210, #764ba2);
             transition: width 0.3s;
         }
 
@@ -288,18 +332,97 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .post-author {
             font-weight: bold;
-            color: #667eea;
+            color: #ff8210;
         }
 
-        .like-btn {
+        .post-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
             background: none;
             border: none;
-            font-size: 20px;
+            font-size: 16px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            transition: color 0.2s;
+        }
+
+        .action-btn:hover {
+            color: #ff8210;
+        }
+
+        .action-btn.liked {
+            color: #f5576c;
+        }
+
+        .comments-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .comment {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            font-size: 13px;
+            color: #ff8210;
+            margin-bottom: 4px;
+        }
+
+        .comment-text {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .comment-input-container {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .comment-input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .comment-submit {
+            background: linear-gradient(135deg, #ff8210, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
         }
 
         .toast {
@@ -338,7 +461,7 @@
         .rank-badge {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff8210, #764ba2);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -361,7 +484,7 @@
         .file-input-label {
             display: inline-block;
             padding: 12px 25px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff8210, #764ba2);
             color: white;
             border-radius: 25px;
             cursor: pointer;
@@ -369,41 +492,9 @@
             font-weight: 600;
         }
 
-        .modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.4);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal.active {
-  display: flex;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-}
-
-.file-input-label {
-  display: inline-block;
-  background: #667eea;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-/* input[type="file"] {
-  display: none;
-} */
+        input[type="file"] {
+            display: none;
+        }
 
         .outfit-display {
             background: #f8f9fa;
@@ -431,7 +522,6 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        /* AI Stylist Chatbot Styles */
         .chat-container {
             display: flex;
             flex-direction: column;
@@ -443,7 +533,7 @@
         }
         
         .chat-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff8210, #764ba2);
             color: white;
             padding: 12px 15px;
             font-weight: bold;
@@ -487,7 +577,7 @@
         }
         
         .user .message-bubble {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff8210, #764ba2);
             color: white;
             border-bottom-right-radius: 5px;
         }
@@ -509,7 +599,7 @@
         }
         
         .chat-input button {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff8210, #764ba2);
             color: white;
             border: none;
             border-radius: 50%;
@@ -527,6 +617,12 @@
             gap: 10px;
             margin-top: 15px;
         }
+
+        @media (max-width: 480px) {
+            .event-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
         
         .event-btn {
             background: white;
@@ -539,14 +635,14 @@
         }
         
         .event-btn:hover {
-            border-color: #667eea;
+            border-color: #ff8210;
             background: #f0f4ff;
         }
         
         .event-btn.active {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff8210, #764ba2);
             color: white;
-            border-color: #667eea;
+            border-color: #ff8210;
         }
         
         .recommendation-item {
@@ -591,8 +687,8 @@
         }
         
         .stylist-tab.active {
-            border-bottom-color: #667eea;
-            color: #667eea;
+            border-bottom-color: #ff8210;
+            color: #ff8210;
             font-weight: bold;
         }
         
@@ -600,7 +696,6 @@
             display: block;
         }
         
-        /* Chat Icon Interface */
         .chat-icon-container {
             text-align: center;
             padding: 40px 20px;
@@ -630,6 +725,140 @@
             cursor: pointer;
             color: white;
         }
+
+        .quiz-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .quiz-question {
+            margin-bottom: 20px;
+        }
+
+        .quiz-question h4 {
+            color: #ff8210;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quiz-option:hover {
+            border-color: #ff8210;
+            background: #f0f4ff;
+        }
+
+        .quiz-option.selected {
+            border-color: #ff8210;
+            background: #e8ecff;
+        }
+
+        .quiz-option.correct {
+            border-color: #4caf50;
+            background: #e8f5e9;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+
+        .quiz-option input[type="radio"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .quiz-feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .quiz-feedback.correct {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .quiz-feedback.incorrect {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .quiz-result {
+            background: linear-gradient(135deg, #ff8210, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .quiz-result h3 {
+            margin-bottom: 10px;
+        }
+
+        .quiz-score {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        @media (max-width: 480px) {
+            .quiz-container {
+                padding: 15px;
+            }
+            
+            .quiz-score {
+                font-size: 36px;
+            }
+        }
+
+        .image-preview {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .upload-area {
+            border: 2px dashed #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin: 10px 0;
+        }
+
+        .upload-area:hover {
+            border-color: #ff8210;
+            background: #f0f4ff;
+        }
+
+        .upload-area.dragover {
+            border-color: #ff8210;
+            background: #e8ecff;
+        }
     </style>
 </head>
 <body>
@@ -638,8 +867,11 @@
             <div class="avatar" id="userAvatar">G</div>
             <div>
                 <div style="font-weight: bold;" id="userName">Guest</div>
-                <div style="font-size: 12px; color: #999;">Sustainable Fashionista</div>
+                <div style="font-size: 12px; color: gainsboro;">Sustainable Fashionista</div>
             </div>
+        </div>
+        <div>
+            <img src="tel.jpg" alt="app-logo" width="10%" style="display: block; margin: 0 auto;">
         </div>
         <div class="credits" id="userCredits">0 ✨</div>
     </div>
@@ -666,7 +898,7 @@
                 <div style="margin-top: 15px;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
                         <span style="font-size: 14px; font-weight: 600;">Reuse Goal Progress</span>
-                        <span style="font-size: 14px; color: #667eea;" id="progressText">0/50</span>
+                        <span style="font-size: 14px; color: #ff8210;" id="progressText">0/50</span>
                     </div>
                     <div class="progress-bar">
                         <div class="progress-fill" id="progressFill" style="width: 0%"></div>
@@ -680,9 +912,12 @@
             </div>
 
             <div class="card">
-                <h2>🌱 Today's Challenge</h2>
-                <p style="margin: 10px 0;">Swap one item today and reduce your carbon footprint!</p>
-                <button class="btn" onclick="completeChallenge()">Complete Challenge (+50✨)</button>
+                <h2>🌱 Sustainability Quiz</h2>
+                <p style="margin: 10px 0; color: #666;">Test your knowledge and earn credits!</p>
+                <div id="quizContainer"></div>
+                <button class="btn" onclick="startQuiz()" id="startQuizBtn">Start Quiz</button>
+                <button class="btn" onclick="submitQuiz()" id="submitQuizBtn" style="display: none;">Submit Answers</button>
+                <div id="quizResult"></div>
             </div>
         </div>
 
@@ -706,7 +941,6 @@
                     <div class="stylist-tab" onclick="switchStylistTab('outfit')">Create Outfit</div>
                 </div>
                 
-                <!-- Chatbot Tab -->
                 <div id="chatTab" class="stylist-tab-content">
                     <div id="chatIconView" class="chat-icon-container">
                         <div class="chat-icon" onclick="openChatInterface()">💬</div>
@@ -746,7 +980,6 @@
                     </div>
                 </div>
                 
-                <!-- Create Outfit Tab -->
                 <div id="outfitTab" class="stylist-tab-content" style="display: none;">
                     <p style="color: #666; margin-bottom: 15px;">Select items to create an outfit</p>
                     <div id="stylistSelection" class="grid"></div>
@@ -762,7 +995,7 @@
             <div class="card">
                 <h2>🔄 Item Exchange</h2>
                 <button class="btn" onclick="showListItemModal()">List Item for Swap</button>
-                <h3 style="margin-top: 20px; color: #667eea;">Available Items</h3>
+                <h3 style="margin-top: 20px; color: #ff8210;">Available Items</h3>
                 <div id="exchangeItems"></div>
             </div>
         </div>
@@ -817,9 +1050,10 @@
     <div id="addItemModal" class="modal">
         <div class="modal-content">
             <h3>Add Item to Wardrobe</h3>
+            
             <input type="text" id="itemTitle" placeholder="Item title (e.g., Blue Jeans)">
             
-            <label style="font-size: 14px; font-weight: 600; color: #667eea; display: block; margin-top: 10px;">Main Category</label>
+            <label style="font-size: 14px; font-weight: 600; color: #ff8210; display: block; margin-top: 10px;">Main Category</label>
             <select id="mainCategory" onchange="updateSubcategories()">
                 <option value="">Select category...</option>
                 <option value="men">Men's Clothing</option>
@@ -828,17 +1062,11 @@
                 <option value="accessories">Accessories</option>
             </select>
             
-            <label style="font-size: 14px; font-weight: 600; color: #667eea; display: block; margin-top: 10px;">Subcategory</label>
+            <label style="font-size: 14px; font-weight: 600; color: #ff8210; display: block; margin-top: 10px;">Subcategory</label>
             <select id="itemSubcategory" disabled>
                 <option value="">Select main category first...</option>
             </select>
-
-             <!-- 👇 Image upload section -->
-            <label for="itemImage" class="file-input-label">Choose Image</label>
-<input type="file" id="itemImage" accept="image/*" onchange="previewImage(event)">
-<img id="imagePreview" src="" alt="Preview" style="display:none; margin-top:10px; width:100px; height:100px; object-fit:cover; border-radius:8px; border:1px solid #ddd;">
-
-
+            
             <button class="btn" onclick="addItem()">Add Item</button>
             <button class="btn btn-secondary" onclick="closeModal('addItemModal')">Cancel</button>
         </div>
@@ -869,6 +1097,15 @@
             <h3>Create Community Post</h3>
             <input type="text" id="postTitle" placeholder="Post title">
             <textarea id="postBody" placeholder="Share your thoughts..." rows="4"></textarea>
+            
+            <div class="upload-area" id="uploadArea" onclick="document.getElementById('postImage').click()">
+                <div style="font-size: 40px; margin-bottom: 10px;">📷</div>
+                <div style="color: #666;">Click to upload an image</div>
+                <div style="font-size: 12px; color: #999; margin-top: 5px;">or drag and drop</div>
+            </div>
+            <input type="file" id="postImage" accept="image/*" style="display: none;" onchange="previewPostImage(event)">
+            <img id="postImagePreview" class="image-preview" style="display: none;">
+            
             <button class="btn" onclick="createPost()">Post</button>
             <button class="btn btn-secondary" onclick="closeModal('createPostModal')">Cancel</button>
         </div>
@@ -896,12 +1133,18 @@
         // Stylist Chatbot Variables
         let selectedEvent = '';
         let chatHistory = [];
+        
+        // Quiz Variables
+        let quizAnswers = {};
+        let quizSubmitted = false;
+        let currentPostImage = null;
 
         // Initialize app
         function init() {
             loadData();
             updateUI();
             addSampleData();
+            initDragDrop();
         }
 
         function loadData() {
@@ -925,6 +1168,201 @@
                 leaderboardData
             };
             localStorage.setItem('swapstyleData', JSON.stringify(data));
+        }
+
+        // Quiz Data and Functions
+        const quizQuestions = [
+            {
+                id: 1,
+                question: "How many liters of water does it take to produce one cotton t-shirt?",
+                options: ["270 liters", "700 liters", "2,700 liters", "7,000 liters"],
+                correct: 2,
+                explanation: "It takes approximately 2,700 liters of water to produce one cotton t-shirt!"
+            },
+            {
+                id: 2,
+                question: "What percentage of clothing ends up in landfills each year?",
+                options: ["15%", "35%", "55%", "85%"],
+                correct: 3,
+                explanation: "Around 85% of all textiles end up in landfills annually. Swapping helps reduce this!"
+            },
+            {
+                id: 3,
+                question: "How much CO₂ can you save by wearing a garment for 9 months longer?",
+                options: ["5-10%", "20-30%", "40-50%", "60-70%"],
+                correct: 1,
+                explanation: "Extending a garment's life by just 9 months reduces carbon emissions by 20-30%!"
+            },
+            {
+                id: 4,
+                question: "Which material is the most sustainable for clothing?",
+                options: ["Polyester", "Cotton", "Organic Hemp", "Nylon"],
+                correct: 2,
+                explanation: "Organic hemp is one of the most sustainable materials - it requires minimal water and no pesticides!"
+            },
+            {
+                id: 5,
+                question: "How many times should you wear an item before washing to be more sustainable?",
+                options: ["1 time", "2-3 times", "5-6 times", "10+ times"],
+                correct: 1,
+                explanation: "Wearing items 2-3 times before washing saves water, energy, and extends garment life!"
+            }
+        ];
+
+        function startQuiz() {
+            quizAnswers = {};
+            quizSubmitted = false;
+            
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = `
+                <div class="quiz-container">
+                    ${quizQuestions.map((q, index) => `
+                        <div class="quiz-question" id="question${q.id}">
+                            <h4>${index + 1}. ${q.question}</h4>
+                            <div class="quiz-options">
+                                ${q.options.map((option, optIndex) => `
+                                    <label class="quiz-option" id="option${q.id}_${optIndex}">
+                                        <input type="radio" name="question${q.id}" value="${optIndex}" 
+                                               onchange="selectAnswer(${q.id}, ${optIndex})">
+                                        <span>${option}</span>
+                                    </label>
+                                `).join('')}
+                            </div>
+                            <div class="quiz-feedback" id="feedback${q.id}" style="display: none;"></div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            document.getElementById('startQuizBtn').style.display = 'none';
+            document.getElementById('submitQuizBtn').style.display = 'block';
+            document.getElementById('quizResult').innerHTML = '';
+        }
+
+        function selectAnswer(questionId, answerIndex) {
+            quizAnswers[questionId] = answerIndex;
+        }
+
+        function submitQuiz() {
+            if (Object.keys(quizAnswers).length < quizQuestions.length) {
+                showToast('Please answer all questions!');
+                return;
+            }
+            
+            if (quizSubmitted) return;
+            quizSubmitted = true;
+            
+            let correctCount = 0;
+            
+            quizQuestions.forEach(q => {
+                const userAnswer = quizAnswers[q.id];
+                const isCorrect = userAnswer === q.correct;
+                
+                if (isCorrect) correctCount++;
+                
+                const optionElement = document.getElementById(`option${q.id}_${userAnswer}`);
+                optionElement.classList.add(isCorrect ? 'correct' : 'incorrect');
+                
+                if (!isCorrect) {
+                    const correctOption = document.getElementById(`option${q.id}_${q.correct}`);
+                    correctOption.classList.add('correct');
+                }
+                
+                const feedbackElement = document.getElementById(`feedback${q.id}`);
+                feedbackElement.style.display = 'block';
+                feedbackElement.className = `quiz-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                feedbackElement.textContent = isCorrect ? '✓ ' + q.explanation : '✗ ' + q.explanation;
+                
+                document.querySelectorAll(`input[name="question${q.id}"]`).forEach(input => {
+                    input.disabled = true;
+                });
+            });
+            
+            const percentage = (correctCount / quizQuestions.length) * 100;
+            let creditsEarned = 0;
+            
+            if (percentage === 100) creditsEarned = 100;
+            else if (percentage >= 80) creditsEarned = 75;
+            else if (percentage >= 60) creditsEarned = 50;
+            else if (percentage >= 40) creditsEarned = 25;
+            else creditsEarned = 10;
+            
+            userData.co2Saved += correctCount;
+            userData.waterSaved += correctCount * 50;
+            
+            addCredits(creditsEarned);
+            
+            const resultElement = document.getElementById('quizResult');
+            resultElement.innerHTML = `
+                <div class="quiz-result">
+                    <h3>🎉 Quiz Complete!</h3>
+                    <div class="quiz-score">${correctCount}/${quizQuestions.length}</div>
+                    <p style="font-size: 18px; margin-bottom: 10px;">${percentage.toFixed(0)}% Correct</p>
+                    <p>You earned ${creditsEarned}✨ credits!</p>
+                    <p style="margin-top: 10px; font-size: 14px; opacity: 0.9;">
+                        +${correctCount}kg CO₂ saved | +${correctCount * 50}L water saved
+                    </p>
+                </div>
+            `;
+            
+            document.getElementById('submitQuizBtn').style.display = 'none';
+            
+            setTimeout(() => {
+                const retakeBtn = document.createElement('button');
+                retakeBtn.className = 'btn btn-secondary';
+                retakeBtn.textContent = 'Retake Quiz';
+                retakeBtn.onclick = startQuiz;
+                resultElement.appendChild(retakeBtn);
+            }, 3000);
+            
+            saveData();
+            updateUI();
+        }
+
+        // Image Upload Functions
+        function previewPostImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    currentPostImage = e.target.result;
+                    const preview = document.getElementById('postImagePreview');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function initDragDrop() {
+            const uploadArea = document.getElementById('uploadArea');
+            if (uploadArea) {
+                uploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.add('dragover');
+                });
+                
+                uploadArea.addEventListener('dragleave', () => {
+                    uploadArea.classList.remove('dragover');
+                });
+                
+                uploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.remove('dragover');
+                    
+                    const file = e.dataTransfer.files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            currentPostImage = e.target.result;
+                            const preview = document.getElementById('postImagePreview');
+                            preview.src = e.target.result;
+                            preview.style.display = 'block';
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
         }
 
         function updateUI() {
@@ -1065,7 +1503,6 @@
             const title = document.getElementById('itemTitle').value;
             const mainCat = document.getElementById('mainCategory').value;
             const subcatValue = document.getElementById('itemSubcategory').value;
-            const imageSrc = document.getElementById('imagePreview').src;
             
             if (!title || !mainCat || !subcatValue) {
                 showToast('Please fill all fields');
@@ -1080,34 +1517,17 @@
                 mainCategory: mainCat,
                 category,
                 itemType,
-                icon,
-                image: imageSrc || null // 🖼️ new field
+                icon
             });
 
-            // addCredits(10);
+            addCredits(10);
             closeModal('addItemModal');
             saveData();
             updateUI();
             document.getElementById('itemTitle').value = '';
             document.getElementById('mainCategory').value = '';
             document.getElementById('itemSubcategory').value = '';
-            document.getElementById('itemImage').value = '';
-            document.getElementById('imagePreview').style.display = 'none';
         }
-
-        function previewImage(event) {
-  const preview = document.getElementById("imagePreview");
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      preview.src = reader.result;
-      preview.style.display = "block";
-    };
-    reader.readAsDataURL(file);
-  }
-}
-
 
         function renderWardrobe() {
             const grid = document.getElementById('wardrobeGrid');
@@ -1115,7 +1535,6 @@
                 grid.innerHTML = '<div class="empty-state"><div class="empty-state-icon">👔</div><p>No items yet. Add your first piece!</p></div>';
                 return;
             }
-            
 
             grid.innerHTML = wardrobe.map(item => `
                 <div class="item-card">
@@ -1174,7 +1593,7 @@
             const result = document.getElementById('outfitResult');
             result.innerHTML = `
                 <div class="outfit-display">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">Your Outfit ✨</h3>
+                    <h3 style="color: #ff8210; margin-bottom: 15px;">Your Outfit ✨</h3>
                     <div class="outfit-items">
                         ${outfit.map(item => `<div class="outfit-item">${item.icon}</div>`).join('')}
                     </div>
@@ -1204,7 +1623,6 @@
             document.getElementById(tabName + 'Tab').style.display = 'block';
         }
         
-        // Chat Icon Interface Functions
         function openChatInterface() {
             document.getElementById('chatIconView').style.display = 'none';
             document.getElementById('chatInterface').style.display = 'block';
@@ -1215,29 +1633,23 @@
             document.getElementById('chatInterface').style.display = 'none';
         }
         
-        // Select event type
         function selectEvent(eventType) {
             selectedEvent = eventType;
             
-            // Update button states
             document.querySelectorAll('.event-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.currentTarget.classList.add('active');
             
-            // Generate recommendations
             generateRecommendations(eventType);
             
-            // Add user message to chat
             addMessage(`I need an outfit for a ${getEventName(eventType)}.`, 'user');
             
-            // Add bot response to chat
             setTimeout(() => {
                 addMessage(`Great choice! Here are some outfit recommendations for your ${getEventName(eventType)} using items from your wardrobe:`, 'bot');
             }, 500);
         }
         
-        // Get display name for event type
         function getEventName(eventType) {
             const eventNames = {
                 'casual': 'casual day out',
@@ -1250,7 +1662,6 @@
             return eventNames[eventType] || eventType;
         }
         
-        // Generate outfit recommendations based on event type
         function generateRecommendations(eventType) {
             const recommendationsContainer = document.getElementById('recommendations');
             
@@ -1263,7 +1674,6 @@
                 return;
             }
             
-            // Filter wardrobe items based on event type
             const suitableItems = filterItemsByEvent(wardrobe, eventType);
             
             if (suitableItems.length === 0) {
@@ -1275,7 +1685,6 @@
                 return;
             }
             
-            // Group items by category
             const tops = suitableItems.filter(item => 
                 item.category === 'tops' || item.category === 'shirts' || 
                 (item.mainCategory && categoryData[item.mainCategory] && 
@@ -1314,10 +1723,8 @@
                   categoryData[item.mainCategory].bags))
             );
             
-            // Generate outfit combinations
-            let recommendationsHTML = '<h3 style="color: #667eea; margin-bottom: 15px;">Recommended Outfits</h3>';
+            let recommendationsHTML = '<h3 style="color: #ff8210; margin-bottom: 15px;">Recommended Outfits</h3>';
             
-            // Outfit 1: Top + Bottom combination
             if (tops.length > 0 && bottoms.length > 0) {
                 const randomTop = tops[Math.floor(Math.random() * tops.length)];
                 const randomBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
@@ -1374,7 +1781,6 @@
                 `;
             }
             
-            // Outfit 2: Dress combination
             if (dresses.length > 0) {
                 const randomDress = dresses[Math.floor(Math.random() * dresses.length)];
                 const randomShoes = shoes.length > 0 ? shoes[Math.floor(Math.random() * shoes.length)] : null;
@@ -1416,29 +1822,25 @@
             recommendationsContainer.innerHTML = recommendationsHTML;
         }
         
-        // Filter items by event type
         function filterItemsByEvent(items, eventType) {
             return items.filter(item => {
-                // Define which item types are suitable for each event
                 const eventSuitability = {
-                    'casual': ['t-shirts', 'jeans', 'sneakers', 'casual dresses', 'hoodies', 'shorts'],
-                    'work': ['shirts', 'blouses', 'trousers', 'blazers', 'dress shoes', 'skirts'],
-                    'date': ['dresses', 'blouses', 'nice tops', 'heels', 'jewelry'],
-                    'formal': ['suits', 'formal dresses', 'dress shoes', 'ties', 'evening gowns'],
-                    'party': ['party dresses', 'heels', 'statement jewelry', 'clutch bags'],
-                    'sports': ['activewear', 'sneakers', 'sports bras', 'athletic shorts']
+                    'casual': ['t-shirt', 'jeans', 'sneakers', 'casual dress', 'hoodie', 'shorts'],
+                    'work': ['shirt', 'blouse', 'trousers', 'blazer', 'dress shoes', 'skirt'],
+                    'date': ['dress', 'blouse', 'heels', 'jewelry'],
+                    'formal': ['suit', 'formal dress', 'dress shoes', 'tie', 'evening gown'],
+                    'party': ['party dress', 'heels', 'jewelry', 'clutch'],
+                    'sports': ['activewear', 'sneakers', 'sports bra', 'athletic shorts']
                 };
                 
                 const itemType = (item.itemType || item.category || '').toLowerCase();
                 
-                // Check if this item type is suitable for the selected event
                 return eventSuitability[eventType].some(suitableType => 
-                    itemType.includes(suitableType) || suitableType.includes(itemType)
+                    itemType.includes(suitableType.replace('-', ' ')) || suitableType.includes(itemType)
                 );
             });
         }
         
-        // Add message to chat
         function addMessage(text, sender) {
             const chatMessages = document.getElementById('chatMessages');
             const messageDiv = document.createElement('div');
@@ -1451,14 +1853,11 @@
             messageDiv.appendChild(bubbleDiv);
             chatMessages.appendChild(messageDiv);
             
-            // Scroll to bottom
             chatMessages.scrollTop = chatMessages.scrollHeight;
             
-            // Add to chat history
             chatHistory.push({ text, sender });
         }
         
-        // Send message from input
         function sendMessage() {
             const input = document.getElementById('chatInput');
             const text = input.value.trim();
@@ -1467,7 +1866,6 @@
                 addMessage(text, 'user');
                 input.value = '';
                 
-                // Simulate bot response
                 setTimeout(() => {
                     let response = "I'm here to help with outfit recommendations! Please select an event type above to get started.";
                     
@@ -1480,20 +1878,21 @@
             }
         }
         
-        // Allow sending message with Enter key
-        document.getElementById('chatInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatInput = document.getElementById('chatInput');
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        sendMessage();
+                    }
+                });
             }
         });
         
-        // Save outfit combination
         function saveOutfit(itemIds) {
-            // In a real app, you would save this to a separate outfits array
             showToast('Outfit saved to your collection!');
             addCredits(25);
             
-            // Add message to chat
             addMessage('I saved this outfit to my collection!', 'user');
             
             setTimeout(() => {
@@ -1501,9 +1900,7 @@
             }, 1000);
         }
         
-        // Initialize the chatbot when switching to stylist view
         function initStylistChat() {
-            // Reset chat if it's the first time or if needed
             if (chatHistory.length === 0) {
                 document.getElementById('chatMessages').innerHTML = `
                     <div class="message bot">
@@ -1556,16 +1953,23 @@
 
             container.innerHTML = exchangeItems.map(item => `
                 <div class="post">
-                    <div style="font-weight: bold; color: #667eea; margin-bottom: 5px;">${item.title}</div>
+                    <div style="font-weight: bold; color: #ff8210; margin-bottom: 5px;">${item.title}</div>
                     <div style="font-size: 14px; color: #666;">📍 ${item.location}</div>
                     <div style="font-size: 14px; color: #666;">⭐ Condition: ${item.condition}/10</div>
+                    <div style="font-size: 14px; color: #669; margin-top:5px;">original price: $100<br>Current swapping price: $50</div>
                     <div style="font-size: 12px; color: #999; margin-top: 5px;">Listed by ${item.author}</div>
+                    <button class="btn" onclick="guarantee()" style="margin-top: 10px;">Check the hygiene and quality guarantee</button>
                     <button class="btn" onclick="requestSwap(${item.id})" style="margin-top: 10px;">Request Swap</button>
                 </div>
             `).join('');
         }
+        function guarantee(){
+            alert("Here is the laundry certificate. It is safe to wear. It is worn just a few times.");
+        }
 
         function requestSwap(id) {
+            alert('📤 The swap request has been sent successfully!!');
+            
             userData.co2Saved += 5;
             userData.waterSaved += 200;
             userData.itemsReused += 1;
@@ -1579,6 +1983,8 @@
         // Community Functions
         function showCreatePostModal() {
             document.getElementById('createPostModal').classList.add('active');
+            currentPostImage = null;
+            document.getElementById('postImagePreview').style.display = 'none';
         }
 
         function createPost() {
@@ -1596,15 +2002,20 @@
                 body,
                 author: userData.name,
                 likes: 0,
+                liked: false,
+                image: currentPostImage,
+                comments: [],
                 timestamp: new Date().toLocaleString()
             });
 
             addCredits(10);
             closeModal('createPostModal');
+            currentPostImage = null;
             saveData();
             updateUI();
             document.getElementById('postTitle').value = '';
             document.getElementById('postBody').value = '';
+            document.getElementById('postImagePreview').style.display = 'none';
         }
 
         function renderCommunityPosts() {
@@ -1618,11 +2029,43 @@
                 <div class="post">
                     <div class="post-header">
                         <span class="post-author">${post.author}</span>
-                        <button class="like-btn" onclick="likePost(${post.id})">❤️ ${post.likes}</button>
+                        <span style="font-size: 11px; color: #999;">${post.timestamp}</span>
                     </div>
                     <div style="font-weight: bold; margin-bottom: 8px;">${post.title}</div>
                     <div style="color: #666; font-size: 14px; margin-bottom: 8px;">${post.body}</div>
-                    <div style="font-size: 11px; color: #999;">${post.timestamp}</div>
+                    ${post.image ? `<img src="${post.image}" alt="Post image" class="post-image">` : ''}
+                    
+                    <div class="post-actions">
+                        <button class="action-btn ${post.liked ? 'liked' : ''}" onclick="likePost(${post.id})">
+                            ${post.liked ? '❤️' : '🤍'} ${post.likes}
+                        </button>
+                        <button class="action-btn" onclick="toggleComments(${post.id})">
+                            💬 ${post.comments ? post.comments.length : 0}
+                        </button>
+                        <button class="action-btn" onclick="sharePost(${post.id})">
+                            📤 Share
+                        </button>
+                    </div>
+                    
+                    <div class="comments-section" id="comments${post.id}" style="display: none;">
+                        <div id="commentsList${post.id}">
+                            ${post.comments && post.comments.length > 0 ? 
+                                post.comments.map(comment => `
+                                    <div class="comment">
+                                        <div class="comment-author">${comment.author}</div>
+                                        <div class="comment-text">${comment.text}</div>
+                                    </div>
+                                `).join('') : 
+                                '<p style="color: #999; font-size: 13px; margin-bottom: 10px;">No comments yet</p>'
+                            }
+                        </div>
+                        <div class="comment-input-container">
+                            <input type="text" class="comment-input" id="commentInput${post.id}" 
+                                   placeholder="Write a comment..." 
+                                   onkeypress="if(event.key==='Enter') addComment(${post.id})">
+                            <button class="comment-submit" onclick="addComment(${post.id})">Post</button>
+                        </div>
+                    </div>
                 </div>
             `).join('');
         }
@@ -1638,9 +2081,9 @@
 
             container.innerHTML = highlights.map(post => `
                 <div class="post">
-                    <div style="font-weight: bold; color: #667eea; margin-bottom: 5px;">${post.title}</div>
-                    <div style="font-size: 14px; color: #666;">${post.body.substring(0, 80)}...</div>
-                    <div style="font-size: 12px; color: #999; margin-top: 5px;">by ${post.author}</div>
+                    <div style="font-weight: bold; color: #ff8210; margin-bottom: 5px;">${post.title}</div>
+                    <div style="font-size: 14px; color: #666;">${post.body.substring(0, 80)}${post.body.length > 80 ? '...' : ''}</div>
+                    <div style="font-size: 12px; color: #999; margin-top: 5px;">by ${post.author} • ${post.likes} likes</div>
                 </div>
             `).join('');
         }
@@ -1648,11 +2091,94 @@
         function likePost(id) {
             const post = communityPosts.find(p => p.id === id);
             if (post) {
-                post.likes += 1;
-                addCredits(5);
+                if (post.liked) {
+                    post.likes -= 1;
+                    post.liked = false;
+                } else {
+                    post.likes += 1;
+                    post.liked = true;
+                    addCredits(5);
+                }
                 saveData();
                 updateUI();
             }
+        }
+
+        function toggleComments(postId) {
+            const commentsSection = document.getElementById(`comments${postId}`);
+            if (commentsSection.style.display === 'none') {
+                commentsSection.style.display = 'block';
+            } else {
+                commentsSection.style.display = 'none';
+            }
+        }
+
+        function addComment(postId) {
+            const input = document.getElementById(`commentInput${postId}`);
+            const commentText = input.value.trim();
+            
+            if (!commentText) {
+                showToast('Please write a comment');
+                return;
+            }
+            
+            const post = communityPosts.find(p => p.id === postId);
+            if (post) {
+                if (!post.comments) post.comments = [];
+                
+                post.comments.push({
+                    author: userData.name,
+                    text: commentText,
+                    timestamp: new Date().toLocaleString()
+                });
+                
+                input.value = '';
+                addCredits(5);
+                saveData();
+                updateUI();
+                
+                document.getElementById(`comments${postId}`).style.display = 'block';
+            }
+        }
+
+        function sharePost(postId) {
+            const post = communityPosts.find(p => p.id === postId);
+            if (post) {
+                const shareText = `Check out this post on SwapStyle:\n\n"${post.title}"\n${post.body}`;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: post.title,
+                        text: shareText
+                    }).then(() => {
+                        showToast('Post shared!');
+                        addCredits(10);
+                    }).catch(() => {
+                        copyToClipboard(shareText);
+                    });
+                } else {
+                    copyToClipboard(shareText);
+                }
+            }
+        }
+
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast('Post copied to clipboard!');
+                addCredits(10);
+            } catch (err) {
+                showToast('Could not copy post');
+            }
+            
+            document.body.removeChild(textarea);
         }
 
         // Leaderboard Functions
@@ -1678,22 +2204,16 @@
         // Utility Functions
         function closeModal(modalId) {
             document.getElementById(modalId).classList.remove('active');
-        }
-
-        function completeChallenge() {
-            addCredits(50);
-            userData.co2Saved += 3;
-            userData.waterSaved += 150;
-            showToast('Challenge completed! 🌱');
-            saveData();
-            updateUI();
+            if (modalId === 'createPostModal') {
+                currentPostImage = null;
+                document.getElementById('postImagePreview').style.display = 'none';
+            }
         }
 
         // Sample Data with Expanded Wardrobe
         function addSampleData() {
             if (wardrobe.length === 0) {
                 wardrobe = [
-                    // Men's Items
                     { id: 1, title: 'Blue Shirt', mainCategory: 'men', category: 'tops', itemType: 'Shirt', icon: '👕' },
                     { id: 2, title: 'Jeans', mainCategory: 'men', category: 'bottoms', itemType: 'Jeans', icon: '👖' },
                     { id: 3, title: 'Sneakers', mainCategory: 'men', category: 'shoes', itemType: 'Sneakers', icon: '👟' },
@@ -1704,8 +2224,6 @@
                     { id: 8, title: 'Leather Jacket', mainCategory: 'men', category: 'outerwear', itemType: 'Jacket', icon: '🧥' },
                     { id: 9, title: 'T-Shirt', mainCategory: 'men', category: 'tops', itemType: 'T-Shirt', icon: '👕' },
                     { id: 10, title: 'Shorts', mainCategory: 'men', category: 'bottoms', itemType: 'Shorts', icon: '🩳' },
-                    
-                    // Women's Items
                     { id: 11, title: 'Summer Dress', mainCategory: 'women', category: 'dresses', itemType: 'Casual Dress', icon: '👗' },
                     { id: 12, title: 'Heels', mainCategory: 'women', category: 'shoes', itemType: 'Heels', icon: '👠' },
                     { id: 13, title: 'Blouse', mainCategory: 'women', category: 'tops', itemType: 'Blouse', icon: '👚' },
@@ -1716,8 +2234,6 @@
                     { id: 18, title: 'Flats', mainCategory: 'women', category: 'shoes', itemType: 'Flats', icon: '🥿' },
                     { id: 19, title: 'Cardigan', mainCategory: 'women', category: 'outerwear', itemType: 'Cardigan', icon: '🧥' },
                     { id: 20, title: 'Leggings', mainCategory: 'women', category: 'bottoms', itemType: 'Leggings', icon: '👖' },
-                    
-                    // Accessories
                     { id: 21, title: 'Handbag', mainCategory: 'accessories', category: 'bags', itemType: 'Handbag', icon: '👜' },
                     { id: 22, title: 'Sunglasses', mainCategory: 'accessories', category: 'sunglasses', itemType: 'Sunglasses', icon: '🕶️' },
                     { id: 23, title: 'Necklace', mainCategory: 'accessories', category: 'jewelry', itemType: 'Necklace', icon: '📿' },
@@ -1741,6 +2257,12 @@
                         body: 'Just completed my first clothing swap and saved so much money! This app is amazing.',
                         author: 'Emma',
                         likes: 12,
+                        liked: false,
+                        image: null,
+                        comments: [
+                            { author: 'Alex', text: 'Congratulations! Keep it up!', timestamp: new Date().toLocaleString() },
+                            { author: 'Sarah', text: 'That\'s awesome! Welcome to the community!', timestamp: new Date().toLocaleString() }
+                        ],
                         timestamp: new Date().toLocaleString()
                     },
                     {
@@ -1749,6 +2271,9 @@
                         body: 'Remember to wash clothes in cold water to save energy and extend garment life!',
                         author: 'Alex',
                         likes: 8,
+                        liked: false,
+                        image: null,
+                        comments: [],
                         timestamp: new Date().toLocaleString()
                     }
                 ];
