@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwapStyle - Sustainable Fashion</title>
+    <title>Vintit - Login</title>
     <style>
         * {
             margin: 0;
@@ -13,421 +13,197 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: white;
+            background: linear-gradient(135deg, #ff8210, #764ba2);
             min-height: 100vh;
-            padding-bottom: 70px;
-            overflow-x: hidden;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                font-size: 14px;
-            }
-        }
-
-        .header {
-            background: #ff8210;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                padding: 10px 15px;
-            }
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            color:#ff8210;
-            font-weight: bold;
-        }
-
-        .credits {
-            background:#f8f9fa;
-            color: brown;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .content {
             padding: 20px;
-            padding-bottom: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
-        @media (max-width: 768px) {
-            .content {
-                padding: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .content {
-                padding: 10px;
-            }
-        }
-
-        .view {
-            display: none;
-        }
-
-        .view.active {
-            display: block;
-        }
-
-        .card {
+        .login-container {
             background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .card h2 {
-            color: #ff8210;
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin: 15px 0;
-        }
-
-        @media (max-width: 480px) {
-            .stats-grid {
-                gap: 8px;
-            }
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, #ff8210, #764ba2);
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             text-align: center;
         }
 
-        .stat-value {
-            font-size: 24px;
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo-container img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .app-title {
+            font-size: 32px;
             font-weight: bold;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 11px;
-            opacity: 0.9;
-            margin-top: 5px;
-        }
-
-        .btn {
             background: #ff8210;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .app-subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #ff8210;
+            box-shadow: 0 0 0 3px rgba(255, 130, 16, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ff8210, #764ba2);
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.2s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 130, 16, 0.4);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .divider::before {
+            margin-right: 10px;
+        }
+
+        .divider::after {
+            margin-left: 10px;
+        }
+
+        .guest-btn {
+            width: 100%;
+            background: white;
+            color: #ff8210;
+            border: 2px solid #ff8210;
+            padding: 14px;
+            border-radius: 12px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
-            touch-action: manipulation;
+            transition: all 0.3s;
         }
 
-        .btn:active {
-            transform: scale(0.98);
-        }
-
-        .btn-secondary {
-            background: #f0f0f0;
-            color: #333;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        @media (max-width: 600px) {
-            .grid {
-                gap: 10px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .item-card {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 10px;
-            text-align: center;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .item-card.selected {
-            border: 3px solid #ff8210;
-            background: #e8ecff;
-        }
-
-        .item-img {
-            width: 100%;
-            height: 120px;
-            background: #ddd;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-        }
-
-        .delete-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 59, 48, 0.9);
+        .guest-btn:hover {
+            background: #ff8210;
             color: white;
-            border: none;
-            border-radius: 50%;
-            width: 28px;
-            height: 28px;
-            font-size: 16px;
-            cursor: pointer;
-            display: none;
         }
 
-        .item-card:hover .delete-btn {
-            display: block;
-        }
-
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            z-index: 100;
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            color: #999;
-            font-size: 11px;
-            cursor: pointer;
-            padding: 5px 15px;
-            touch-action: manipulation;
-        }
-
-        .nav-item.active {
-            color: #ff8210;
-        }
-
-        .nav-icon {
-            font-size: 24px;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.7);
-            z-index: 200;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            max-width: 400px;
-            width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .modal-content h3 {
-            color: #ff8210;
-            margin-bottom: 15px;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 16px;
-            margin: 8px 0;
-        }
-
-        .progress-bar {
-            background: #e0e0e0;
-            height: 8px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ff8210, #764ba2);
-            transition: width 0.3s;
-        }
-
-        .post {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-        }
-
-        .post-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .post-author {
-            font-weight: bold;
-            color: #ff8210;
-        }
-
-        .post-image {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin: 10px 0;
-        }
-
-        .post-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .action-btn {
-            background: none;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        .signup-link {
+            margin-top: 20px;
             color: #666;
-            transition: color 0.2s;
+            font-size: 14px;
         }
 
-        .action-btn:hover {
+        .signup-link a {
             color: #ff8210;
+            text-decoration: none;
+            font-weight: 600;
         }
 
-        .action-btn.liked {
-            color: #f5576c;
+        .signup-link a:hover {
+            text-decoration: underline;
         }
 
-        .comments-section {
-            margin-top: 15px;
-            padding-top: 15px;
+        .features {
+            margin-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid #e0e0e0;
         }
 
-        .comment {
-            background: white;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-        }
-
-        .comment-author {
-            font-weight: bold;
-            font-size: 13px;
-            color: #ff8210;
-            margin-bottom: 4px;
-        }
-
-        .comment-text {
-            font-size: 14px;
-            color: #333;
-        }
-
-        .comment-input-container {
+        .feature-item {
             display: flex;
-            gap: 8px;
-            margin-top: 10px;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: #666;
+            font-size: 14px;
+            text-align: left;
         }
 
-        .comment-input {
-            flex: 1;
-            padding: 8px 12px;
-            border: 1px solid #e0e0e0;
-            border-radius: 20px;
-            font-size: 14px;
+        .feature-icon {
+            font-size: 20px;
+            min-width: 30px;
         }
 
-        .comment-submit {
-            background: linear-gradient(135deg, #ff8210, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 8px 16px;
-            cursor: pointer;
-            font-size: 14px;
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px 20px;
+            }
+
+            .app-title {
+                font-size: 28px;
+            }
+
+            .logo-container img {
+                width: 100px;
+            }
         }
 
         .toast {
             position: fixed;
-            bottom: 90px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             background: #333;
@@ -435,7 +211,7 @@
             padding: 12px 24px;
             border-radius: 25px;
             display: none;
-            z-index: 300;
+            z-index: 1000;
         }
 
         .toast.show {
@@ -447,972 +223,101 @@
             from { opacity: 0; transform: translateX(-50%) translateY(20px); }
             to { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
-
-        .leaderboard-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 12px;
-            background: #f8f9fa;
-            border-radius: 12px;
-            margin-bottom: 10px;
-        }
-
-        .rank-badge {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #ff8210, #764ba2);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: #999;
-        }
-
-        .empty-state-icon {
-            font-size: 60px;
-            margin-bottom: 15px;
-        }
-
-        .file-input-label {
-            display: inline-block;
-            padding: 12px 25px;
-            background: linear-gradient(135deg, #ff8210, #764ba2);
-            color: white;
-            border-radius: 25px;
-            cursor: pointer;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        input[type="file"] {
-            display: none;
-        }
-
-        .outfit-display {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 15px 0;
-        }
-
-        .outfit-items {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .outfit-item {
-            width: 80px;
-            height: 80px;
-            background: white;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 35px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .chat-container {
-            display: flex;
-            flex-direction: column;
-            height: 400px;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-        
-        .chat-header {
-            background: linear-gradient(135deg, #ff8210, #764ba2);
-            color: white;
-            padding: 12px 15px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .chat-messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-            background: #f8f9fa;
-        }
-        
-        .message {
-            margin-bottom: 15px;
-            display: flex;
-        }
-        
-        .message.bot {
-            justify-content: flex-start;
-        }
-        
-        .message.user {
-            justify-content: flex-end;
-        }
-        
-        .message-bubble {
-            max-width: 80%;
-            padding: 10px 15px;
-            border-radius: 18px;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-        
-        .bot .message-bubble {
-            background: white;
-            border-bottom-left-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .user .message-bubble {
-            background: linear-gradient(135deg, #ff8210, #764ba2);
-            color: white;
-            border-bottom-right-radius: 5px;
-        }
-        
-        .chat-input {
-            display: flex;
-            padding: 10px;
-            background: white;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .chat-input input {
-            flex: 1;
-            border: none;
-            padding: 10px;
-            border-radius: 20px;
-            background: #f0f0f0;
-            margin-right: 10px;
-        }
-        
-        .chat-input button {
-            background: linear-gradient(135deg, #ff8210, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .event-buttons {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        @media (max-width: 480px) {
-            .event-buttons {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .event-btn {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .event-btn:hover {
-            border-color: #ff8210;
-            background: #f0f4ff;
-        }
-        
-        .event-btn.active {
-            background: linear-gradient(135deg, #ff8210, #764ba2);
-            color: white;
-            border-color: #ff8210;
-        }
-        
-        .recommendation-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px;
-            background: white;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .recommendation-icon {
-            font-size: 24px;
-        }
-        
-        .recommendation-details {
-            flex: 1;
-        }
-        
-        .recommendation-title {
-            font-weight: bold;
-            font-size: 14px;
-        }
-        
-        .recommendation-category {
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .stylist-tabs {
-            display: flex;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .stylist-tab {
-            padding: 10px 15px;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-        }
-        
-        .stylist-tab.active {
-            border-bottom-color: #ff8210;
-            color: #ff8210;
-            font-weight: bold;
-        }
-        
-        .stylist-tab-content {
-            display: block;
-        }
-        
-        .chat-icon-container {
-            text-align: center;
-            padding: 40px 20px;
-        }
-        
-        .chat-icon {
-            font-size: 100px;
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .chat-icon:hover {
-            transform: scale(1.1);
-        }
-        
-        .chat-icon-text {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
-        .close-chat {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-        }
-
-        .quiz-container {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 15px;
-        }
-
-        .quiz-question {
-            margin-bottom: 20px;
-        }
-
-        .quiz-question h4 {
-            color: #ff8210;
-            margin-bottom: 12px;
-            font-size: 16px;
-        }
-
-        .quiz-options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .quiz-option {
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 12px;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .quiz-option:hover {
-            border-color: #ff8210;
-            background: #f0f4ff;
-        }
-
-        .quiz-option.selected {
-            border-color: #ff8210;
-            background: #e8ecff;
-        }
-
-        .quiz-option.correct {
-            border-color: #4caf50;
-            background: #e8f5e9;
-        }
-
-        .quiz-option.incorrect {
-            border-color: #f44336;
-            background: #ffebee;
-        }
-
-        .quiz-option input[type="radio"] {
-            width: auto;
-            margin: 0;
-        }
-
-        .quiz-feedback {
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-
-        .quiz-feedback.correct {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
-
-        .quiz-feedback.incorrect {
-            background: #ffebee;
-            color: #c62828;
-        }
-
-        .quiz-result {
-            background: linear-gradient(135deg, #ff8210, #764ba2);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .quiz-result h3 {
-            margin-bottom: 10px;
-        }
-
-        .quiz-score {
-            font-size: 48px;
-            font-weight: bold;
-            margin: 15px 0;
-        }
-
-        @media (max-width: 480px) {
-            .quiz-container {
-                padding: 15px;
-            }
-            
-            .quiz-score {
-                font-size: 36px;
-            }
-        }
-
-        .image-preview {
-            width: 100%;
-            max-height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-
-        .upload-area {
-            border: 2px dashed #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            margin: 10px 0;
-        }
-
-        .upload-area:hover {
-            border-color: #ff8210;
-            background: #f0f4ff;
-        }
-
-        .upload-area.dragover {
-            border-color: #ff8210;
-            background: #e8ecff;
-        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="user-info">
-            <div class="avatar" id="userAvatar">G</div>
-            <div>
-                <div style="font-weight: bold;" id="userName">Guest</div>
-                <div style="font-size: 12px; color: gainsboro;">Sustainable Fashionista</div>
-            </div>
-        </div>
-        <div>
-            <img src="tel.jpg" alt="app-logo" width="85px" style="display: block; margin: 0 auto;">
-        </div>
-        <div class="credits" id="userCredits">0 ✨</div>
-    </div>
-
-    <div class="content">
-        <!-- Home View -->
-        <div id="homeView" class="view active">
-            <div class="card">
-                <h2>🌍 Your Impact</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-value" id="co2Saved">0</span>
-                        <span class="stat-label">kg CO₂ saved</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-value" id="waterSaved">0</span>
-                        <span class="stat-label">L water saved</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-value" id="itemsReused">0</span>
-                        <span class="stat-label">items reused</span>
-                    </div>
-                </div>
-                <div style="margin-top: 15px;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                        <span style="font-size: 14px; font-weight: 600;">Reuse Goal Progress</span>
-                        <span style="font-size: 14px; color: #ff8210;" id="progressText">0/50</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>💚 Community Highlights</h2>
-                <div id="communityHighlights"></div>
-            </div>
-
-            <div class="card">
-                <h2>🌱 Sustainability Quiz</h2>
-                <p style="margin: 10px 0; color: #666;">Test your knowledge and earn credits!</p>
-                <div id="quizContainer"></div>
-                <button class="btn" onclick="startQuiz()" id="startQuizBtn">Start Quiz</button>
-                <button class="btn" onclick="submitQuiz()" id="submitQuizBtn" style="display: none;">Submit Answers</button>
-                <div id="quizResult"></div>
-            </div>
+    <div class="login-container">
+        <div class="logo-container">
+            <img src="tel.jpg" alt="Vintit Logo">
+            <div class="app-title">VINT-IT</div>
+            <div class="app-subtitle">Sustainable Fashion for Everyone</div>
         </div>
 
-        <!-- Wardrobe View -->
-        <div id="wardrobeView" class="view">
-            <div class="card">
-                <h2>👔 My Wardrobe</h2>
-                <button class="btn" onclick="showAddItemModal()">+ Add Item</button>
-                <button class="btn">+Add image of your clothes</button>
-                <div id="wardrobeGrid" class="grid"></div>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
             </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+<!-- 
+        <div class="divider">OR</div>
+
+        <button class="guest-btn" onclick="continueAsGuest()">Continue as Guest</button> -->
+
+        <div class="signup-link">
+            Don't have an account? <a href="#" onclick="showSignup(); return false;">Sign Up</a>
         </div>
 
-        <!-- AI Stylist View -->
-        <div id="stylistView" class="view">
-            <div class="card">
-                <h2>✨ AI Stylist</h2>
-                
-                <div class="stylist-tabs">
-                    <div class="stylist-tab active" onclick="switchStylistTab('chat')">Style Assistant</div>
-                    <div class="stylist-tab" onclick="switchStylistTab('outfit')">Create Outfit</div>
-                </div>
-                
-                <div id="chatTab" class="stylist-tab-content">
-                    <div id="chatIconView" class="chat-icon-container">
-                        <div class="chat-icon" onclick="openChatInterface()">💬</div>
-                        <div class="chat-icon-text">Need style advice? Chat with our AI stylist!</div>
-                        <button class="btn" onclick="openChatInterface()">Start Chat</button>
-                    </div>
-                    
-                    <div id="chatInterface" style="display: none;">
-                        <div class="chat-container">
-                            <div class="chat-header">
-                                Style Assistant
-                                <button class="close-chat" onclick="closeChatInterface()">×</button>
-                            </div>
-                            <div class="chat-messages" id="chatMessages">
-                                <div class="message bot">
-                                    <div class="message-bubble">
-                                        Hi there! I'm your AI style assistant. I can help you create outfits for different occasions using items from your wardrobe. What event are you dressing for?
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chat-input">
-                                <input type="text" id="chatInput" placeholder="Type your message...">
-                                <button onclick="sendMessage()">➤</button>
-                            </div>
-                        </div>
-                        
-                        <div class="event-buttons" id="eventButtons">
-                            <div class="event-btn" onclick="selectEvent('casual')">Casual Day Out</div>
-                            <div class="event-btn" onclick="selectEvent('work')">Work/Office</div>
-                            <div class="event-btn" onclick="selectEvent('date')">Date Night</div>
-                            <div class="event-btn" onclick="selectEvent('formal')">Formal Event</div>
-                            <div class="event-btn" onclick="selectEvent('party')">Party/Night Out</div>
-                            <div class="event-btn" onclick="selectEvent('sports')">Sports/Active</div>
-                        </div>
-                        
-                        <div id="recommendations" style="margin-top: 15px;"></div>
-                    </div>
-                </div>
-                
-                <div id="outfitTab" class="stylist-tab-content" style="display: none;">
-                    <p style="color: #666; margin-bottom: 15px;">Select items to create an outfit</p>
-                    <div id="stylistSelection" class="grid"></div>
-                    <div id="outfitResult"></div>
-                    <button class="btn" onclick="generateOutfit()" style="margin-top: 15px;">Generate Outfit</button>
-                    <button class="btn btn-secondary" onclick="clearSelection()">Clear Selection</button>
-                </div>
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon">🌍</div>
+                <div>Track your environmental impact</div>
             </div>
-        </div>
-
-        <!-- Exchange View -->
-        <div id="exchangeView" class="view">
-            <div class="card">
-                <h2>🔄 Item Exchange</h2>
-                <button class="btn" onclick="showListItemModal()">List Item for Swap</button>
-                <h3 style="margin-top: 20px; color: #ff8210;">Available Items</h3>
-                <div id="exchangeItems"></div>
+            <div class="feature-item">
+                <div class="feature-icon">👔</div>
+                <div>Manage your digital wardrobe</div>
             </div>
-        </div>
-
-        <!-- Community View -->
-        <div id="communityView" class="view">
-            <div class="card">
-                <h2>👥 Community</h2>
-                <button class="btn" onclick="showCreatePostModal()">Create Post</button>
-                <div id="communityPosts" style="margin-top: 20px;"></div>
+            <div class="feature-item">
+                <div class="feature-icon">✨</div>
+                <div>AI-powered style recommendations</div>
             </div>
-        </div>
-
-        <!-- Leaderboard View -->
-        <div id="leaderboardView" class="view">
-            <div class="card">
-                <h2>🏆 Leaderboard</h2>
-                <div id="leaderboardList"></div>
+            <div class="feature-item">
+                <div class="feature-icon">🔄</div>
+                <div>Swap clothes with the community</div>
             </div>
         </div>
     </div>
 
-    <!-- Bottom Navigation -->
-    <div class="bottom-nav">
-        <div class="nav-item active" onclick="switchView('home')">
-            <div class="nav-icon">🏠</div>
-            <div>Home</div>
-        </div>
-        <div class="nav-item" onclick="switchView('wardrobe')">
-            <div class="nav-icon">👔</div>
-            <div>Wardrobe</div>
-        </div>
-        <div class="nav-item" onclick="switchView('stylist')">
-            <div class="nav-icon">✨</div>
-            <div>Stylist</div>
-        </div>
-        <div class="nav-item" onclick="switchView('exchange')">
-            <div class="nav-icon">🔄</div>
-            <div>Exchange</div>
-        </div>
-        <div class="nav-item" onclick="switchView('community')">
-            <div class="nav-icon">👥</div>
-            <div>Community</div>
-        </div>
-        <div class="nav-item" onclick="switchView('leaderboard')">
-            <div class="nav-icon">🏆</div>
-            <div>Ranks</div>
-        </div>
-    </div>
-
-    <!-- Add Item Modal -->
-    <div id="addItemModal" class="modal">
-        <div class="modal-content">
-            <h3>Add Item to Wardrobe</h3>
-            
-            <input type="text" id="itemTitle" placeholder="Item title (e.g., Blue Jeans)">
-            
-            <label style="font-size: 14px; font-weight: 600; color: #ff8210; display: block; margin-top: 10px;">Main Category</label>
-            <select id="mainCategory" onchange="updateSubcategories()">
-                <option value="">Select category...</option>
-                <option value="men">Men's Clothing</option>
-                <option value="women">Women's Clothing</option>
-                <option value="kids">Kids' Clothing</option>
-                <option value="accessories">Accessories</option>
-            </select>
-            
-            <label style="font-size: 14px; font-weight: 600; color: #ff8210; display: block; margin-top: 10px;">Subcategory</label>
-            <select id="itemSubcategory" disabled>
-                <option value="">Select main category first...</option>
-            </select>
-            
-            <button class="btn" onclick="addItem()">Add Item</button>
-            <button class="btn btn-secondary" onclick="closeModal('addItemModal')">Cancel</button>
-        </div>
-    </div>
-
-    <!-- List Item Modal -->
-    <div id="listItemModal" class="modal">
-        <div class="modal-content">
-            <h3>List Item for Exchange</h3>
-            <input type="text" id="exchangeTitle" placeholder="Item title">
-            <input type="text" id="exchangeLocation" placeholder="Your location">
-            <select id="exchangeCondition">
-                <option value="">Select condition...</option>
-                <option value="10">10 - Like New</option>
-                <option value="9">9 - Excellent</option>
-                <option value="8">8 - Very Good</option>
-                <option value="7">7 - Good</option>
-                <option value="6">6 - Fair</option>
-            </select>
-            <button class="btn" onclick="listItemForExchange()">List Item</button>
-            <button class="btn btn-secondary" onclick="closeModal('listItemModal')">Cancel</button>
-        </div>
-    </div>
-
-    <!-- Create Post Modal -->
-    <div id="createPostModal" class="modal">
-        <div class="modal-content">
-            <h3>Create Community Post</h3>
-            <input type="text" id="postTitle" placeholder="Post title">
-            <textarea id="postBody" placeholder="Share your thoughts..." rows="4"></textarea>
-            
-            <div class="upload-area" id="uploadArea" onclick="document.getElementById('postImage').click()">
-                <div style="font-size: 40px; margin-bottom: 10px;">📷</div>
-                <div style="color: #666;">Click to upload an image</div>
-                <div style="font-size: 12px; color: #999; margin-top: 5px;">or drag and drop</div>
-            </div>
-            <input type="file" id="postImage" accept="image/*" style="display: none;" onchange="previewPostImage(event)">
-            <img id="postImagePreview" class="image-preview" style="display: none;">
-            
-            <button class="btn" onclick="createPost()">Post</button>
-            <button class="btn btn-secondary" onclick="closeModal('createPostModal')">Cancel</button>
-        </div>
-    </div>
-
-    <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
     <script>
-        // Data Storage
-        let userData = {
-            name: 'Guest',
-            credits: 0,
-            co2Saved: 0,
-            waterSaved: 0,
-            itemsReused: 0
-        };
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-        let wardrobe = [];
-        let exchangeItems = [];
-        let communityPosts = [];
-        let selectedItems = [];
-        let leaderboardData = [];
-        
-        // Stylist Chatbot Variables
-        let selectedEvent = '';
-        let chatHistory = [];
-        
-        // Quiz Variables
-        let quizAnswers = {};
-        let quizSubmitted = false;
-        let currentPostImage = null;
+            // Simple validation
+            if (email && password) {
+                // Store user info (in a real app, this would be handled by a backend)
+                const username = email.split('@')[0];
+                localStorage.setItem('vintitUser', JSON.stringify({
+                    name: username.charAt(0).toUpperCase() + username.slice(1),
+                    email: email
+                }));
 
-        // Initialize app
-        function init() {
-            loadData();
-            updateUI();
-            addSampleData();
-            initDragDrop();
-        }
-
-        function loadData() {
-            const saved = localStorage.getItem('swapstyleData');
-            if (saved) {
-                const data = JSON.parse(saved);
-                userData = data.userData || userData;
-                wardrobe = data.wardrobe || [];
-                exchangeItems = data.exchangeItems || [];
-                communityPosts = data.communityPosts || [];
-                leaderboardData = data.leaderboardData || [];
+                showToast('Login successful! Redirecting...');
+                
+                // Redirect to main page after a short delay
+                setTimeout(() => {
+                    window.location.href = 'yoon.html';
+                }, 1000);
             }
         }
 
-        function saveData() {
-            const data = {
-                userData,
-                wardrobe,
-                exchangeItems,
-                communityPosts,
-                leaderboardData
-            };
-            localStorage.setItem('swapstyleData', JSON.stringify(data));
-        }
+        function continueAsGuest() {
+            // Set guest user
+            localStorage.setItem('vintitUser', JSON.stringify({
+                name: 'Guest',
+                email: 'guest@vintit.com'
+            }));
 
-        // Quiz Data and Functions
-        const quizQuestions = [
-            {
-                id: 1,
-                question: "How many liters of water does it take to produce one cotton t-shirt?",
-                options: ["270 liters", "700 liters", "2,700 liters", "7,000 liters"],
-                correct: 2,
-                explanation: "It takes approximately 2,700 liters of water to produce one cotton t-shirt!"
-            },
-            {
-                id: 2,
-                question: "What percentage of clothing ends up in landfills each year?",
-                options: ["15%", "35%", "55%", "85%"],
-                correct: 3,
-                explanation: "Around 85% of all textiles end up in landfills annually. Swapping helps reduce this!"
-            },
-            {
-                id: 3,
-                question: "How much CO₂ can you save by wearing a garment for 9 months longer?",
-                options: ["5-10%", "20-30%", "40-50%", "60-70%"],
-                correct: 1,
-                explanation: "Extending a garment's life by just 9 months reduces carbon emissions by 20-30%!"
-            },
-            {
-                id: 4,
-                question: "Which material is the most sustainable for clothing?",
-                options: ["Polyester", "Cotton", "Organic Hemp", "Nylon"],
-                correct: 2,
-                explanation: "Organic hemp is one of the most sustainable materials - it requires minimal water and no pesticides!"
-            },
-            {
-                id: 5,
-                question: "How many times should you wear an item before washing to be more sustainable?",
-                options: ["1 time", "2-3 times", "5-6 times", "10+ times"],
-                correct: 1,
-                explanation: "Wearing items 2-3 times before washing saves water, energy, and extends garment life!"
-            }
-        ];
-
-        function startQuiz() {
-            quizAnswers = {};
-            quizSubmitted = false;
-            
-            const container = document.getElementById('quizContainer');
-            container.innerHTML = `
-                <div class="quiz-container">
-                    ${quizQuestions.map((q, index) => `
-                        <div class="quiz-question" id="question${q.id}">
-                            <h4>${index + 1}. ${q.question}</h4>
-                            <div class="quiz-options">
-                                ${q.options.map((option, optIndex) => `
-                                    <label class="quiz-option" id="option${q.id}_${optIndex}">
-                                        <input type="radio" name="question${q.id}" value="${optIndex}" 
-                                               onchange="selectAnswer(${q.id}, ${optIndex})">
-                                        <span>${option}</span>
-                                    </label>
-                                `).join('')}
-                            </div>
-                            <div class="quiz-feedback" id="feedback${q.id}" style="display: none;"></div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-            
-            document.getElementById('startQuizBtn').style.display = 'none';
-            document.getElementById('submitQuizBtn').style.display = 'block';
-            document.getElementById('quizResult').innerHTML = '';
-        }
-
-        function selectAnswer(questionId, answerIndex) {
-            quizAnswers[questionId] = answerIndex;
-        }
-
-        function submitQuiz() {
-            if (Object.keys(quizAnswers).length < quizQuestions.length) {
-                showToast('Please answer all questions!');
-                return;
-            }
-            
-            if (quizSubmitted) return;
-            quizSubmitted = true;
-            
-            let correctCount = 0;
-            
-            quizQuestions.forEach(q => {
-                const userAnswer = quizAnswers[q.id];
-                const isCorrect = userAnswer === q.correct;
-                
-                if (isCorrect) correctCount++;
-                
-                const optionElement = document.getElementById(`option${q.id}_${userAnswer}`);
-                optionElement.classList.add(isCorrect ? 'correct' : 'incorrect');
-                
-                if (!isCorrect) {
-                    const correctOption = document.getElementById(`option${q.id}_${q.correct}`);
-                    correctOption.classList.add('correct');
-                }
-                
-                const feedbackElement = document.getElementById(`feedback${q.id}`);
-                feedbackElement.style.display = 'block';
-                feedbackElement.className = `quiz-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-                feedbackElement.textContent = isCorrect ? '✓ ' + q.explanation : '✗ ' + q.explanation;
-                
-                document.querySelectorAll(`input[name="question${q.id}"]`).forEach(input => {
-                    input.disabled = true;
-                });
-            });
-            
-            const percentage = (correctCount / quizQuestions.length) * 100;
-            let creditsEarned = 0;
-            
-            if (percentage === 100) creditsEarned = 100;
-            else if (percentage >= 80) creditsEarned = 75;
-            else if (percentage >= 60) creditsEarned = 50;
-            else if (percentage >= 40) creditsEarned = 25;
-            else creditsEarned = 10;
-            
-            userData.co2Saved += correctCount;
-            userData.waterSaved += correctCount * 50;
-            
-            addCredits(creditsEarned);
-            
-            const resultElement = document.getElementById('quizResult');
-            resultElement.innerHTML = `
-                <div class="quiz-result">
-                    <h3>🎉 Quiz Complete!</h3>
-                    <div class="quiz-score">${correctCount}/${quizQuestions.length}</div>
-                    <p style="font-size: 18px; margin-bottom: 10px;">${percentage.toFixed(0)}% Correct</p>
-                    <p>You earned ${creditsEarned}✨ credits!</p>
-                    <p style="margin-top: 10px; font-size: 14px; opacity: 0.9;">
-                        +${correctCount}kg CO₂ saved | +${correctCount * 50}L water saved
-                    </p>
-                </div>
-            `;
-            
-            document.getElementById('submitQuizBtn').style.display = 'none';
+            showToast('Welcome! Redirecting...');
             
             setTimeout(() => {
-                const retakeBtn = document.createElement('button');
-                retakeBtn.className = 'btn btn-secondary';
-                retakeBtn.textContent = 'Retake Quiz';
-                retakeBtn.onclick = startQuiz;
-                resultElement.appendChild(retakeBtn);
-            }, 3000);
-            
-            saveData();
-            updateUI();
+                window.location.href = 'yoon.html';
+            }, 1000);
         }
 
-        // Image Upload Functions
-        function previewPostImage(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    currentPostImage = e.target.result;
-                    const preview = document.getElementById('postImagePreview');
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function initDragDrop() {
-            const uploadArea = document.getElementById('uploadArea');
-            if (uploadArea) {
-                uploadArea.addEventListener('dragover', (e) => {
-                    e.preventDefault();
-                    uploadArea.classList.add('dragover');
-                });
-                
-                uploadArea.addEventListener('dragleave', () => {
-                    uploadArea.classList.remove('dragover');
-                });
-                
-                uploadArea.addEventListener('drop', (e) => {
-                    e.preventDefault();
-                    uploadArea.classList.remove('dragover');
-                    
-                    const file = e.dataTransfer.files[0];
-                    if (file && file.type.startsWith('image/')) {
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            currentPostImage = e.target.result;
-                            const preview = document.getElementById('postImagePreview');
-                            preview.src = e.target.result;
-                            preview.style.display = 'block';
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                });
-            }
-        }
-
-        function updateUI() {
-            document.getElementById('userName').textContent = userData.name;
-            document.getElementById('userAvatar').textContent = userData.name[0].toUpperCase();
-            document.getElementById('userCredits').textContent = userData.credits + ' ✨';
-            document.getElementById('co2Saved').textContent = userData.co2Saved;
-            document.getElementById('waterSaved').textContent = userData.waterSaved;
-            document.getElementById('itemsReused').textContent = userData.itemsReused;
-            
-            const progress = Math.min((userData.itemsReused / 50) * 100, 100);
-            document.getElementById('progressFill').style.width = progress + '%';
-            document.getElementById('progressText').textContent = `${userData.itemsReused}/50`;
-
-            renderWardrobe();
-            renderStylistSelection();
-            renderExchangeItems();
-            renderCommunityPosts();
-            renderCommunityHighlights();
-            renderLeaderboard();
-        }
-
-        function addCredits(amount) {
-            userData.credits += amount;
-            showToast(`+${amount}✨ credits earned!`);
-            updateLeaderboard();
-            saveData();
-            updateUI();
-        }
-
-        function updateLeaderboard() {
-            const existingIndex = leaderboardData.findIndex(u => u.name === userData.name);
-            if (existingIndex >= 0) {
-                leaderboardData[existingIndex].credits = userData.credits;
-            } else {
-                leaderboardData.push({ name: userData.name, credits: userData.credits });
-            }
-            leaderboardData.sort((a, b) => b.credits - a.credits);
-        }
-
-        function switchView(viewName) {
-            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-            document.getElementById(viewName + 'View').classList.add('active');
-            
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            
-            if (viewName === 'stylist') {
-                initStylistChat();
-            }
+        function showSignup() {
+            showToast('Sign up feature coming soon!');
         }
 
         function showToast(message) {
@@ -1422,888 +327,19 @@
             setTimeout(() => toast.classList.remove('show'), 2000);
         }
 
-        // Category Structure
-        const categoryData = {
-            men: {
-                tops: { label: "Tops", items: ["T-Shirt", "Shirt", "Polo", "Tank Top", "Henley"], icon: "👕" },
-                bottoms: { label: "Bottoms", items: ["Jeans", "Chinos", "Shorts", "Sweatpants", "Cargo Pants"], icon: "👖" },
-                outerwear: { label: "Outerwear", items: ["Jacket", "Blazer", "Hoodie", "Coat", "Vest"], icon: "🧥" },
-                suits: { label: "Suits & Formal", items: ["Suit", "Tuxedo", "Dress Shirt", "Tie", "Bow Tie"], icon: "🤵" },
-                activewear: { label: "Activewear", items: ["Athletic Shorts", "Track Pants", "Sports Jersey", "Compression Wear"], icon: "🏃" },
-                shoes: { label: "Shoes", items: ["Sneakers", "Dress Shoes", "Boots", "Loafers", "Sandals"], icon: "👞" }
-            },
-            women: {
-                tops: { label: "Tops", items: ["Blouse", "T-Shirt", "Tank Top", "Crop Top", "Sweater", "Cardigan"], icon: "👚" },
-                bottoms: { label: "Bottoms", items: ["Jeans", "Skirt", "Leggings", "Trousers", "Shorts", "Culottes"], icon: "👖" },
-                dresses: { label: "Dresses", items: ["Casual Dress", "Evening Dress", "Sundress", "Maxi Dress", "Midi Dress"], icon: "👗" },
-                outerwear: { label: "Outerwear", items: ["Jacket", "Coat", "Blazer", "Cardigan", "Trench Coat"], icon: "🧥" },
-                activewear: { label: "Activewear", items: ["Sports Bra", "Yoga Pants", "Athletic Top", "Running Shorts"], icon: "🏃‍♀️" },
-                lingerie: { label: "Lingerie & Sleepwear", items: ["Bra", "Underwear", "Nightgown", "Pajamas", "Robe"], icon: "🩱" },
-                shoes: { label: "Shoes", items: ["Heels", "Flats", "Boots", "Sneakers", "Sandals", "Wedges"], icon: "👠" }
-            },
-            kids: {
-                tops: { label: "Tops", items: ["T-Shirt", "Polo", "Sweater", "Hoodie", "Long Sleeve"], icon: "👕" },
-                bottoms: { label: "Bottoms", items: ["Jeans", "Shorts", "Leggings", "Sweatpants", "Skirt"], icon: "👖" },
-                dresses: { label: "Dresses & Rompers", items: ["Dress", "Romper", "Jumpsuit", "Overalls"], icon: "👗" },
-                outerwear: { label: "Outerwear", items: ["Jacket", "Coat", "Hoodie", "Vest", "Raincoat"], icon: "🧥" },
-                sleepwear: { label: "Sleepwear", items: ["Pajamas", "Nightgown", "Onesie", "Sleep Shirt"], icon: "😴" },
-                shoes: { label: "Shoes", items: ["Sneakers", "Sandals", "Boots", "School Shoes", "Slippers"], icon: "👟" },
-                baby: { label: "Baby Items", items: ["Onesie", "Bodysuit", "Bib", "Baby Dress", "Booties"], icon: "👶" }
-            },
-            accessories: {
-                bags: { label: "Bags", items: ["Handbag", "Backpack", "Tote", "Clutch", "Crossbody", "Messenger Bag"], icon: "👜" },
-                jewelry: { label: "Jewelry", items: ["Necklace", "Bracelet", "Earrings", "Ring", "Watch"], icon: "💍" },
-                hats: { label: "Hats & Caps", items: ["Baseball Cap", "Beanie", "Fedora", "Sun Hat", "Bucket Hat"], icon: "🧢" },
-                scarves: { label: "Scarves & Wraps", items: ["Scarf", "Shawl", "Bandana", "Pashmina"], icon: "🧣" },
-                belts: { label: "Belts", items: ["Leather Belt", "Fabric Belt", "Chain Belt", "Suspenders"], icon: "👔" },
-                sunglasses: { label: "Eyewear", items: ["Sunglasses", "Reading Glasses", "Fashion Glasses"], icon: "🕶️" },
-                other: { label: "Other Accessories", items: ["Wallet", "Gloves", "Hair Accessories", "Socks", "Tie"], icon: "👝" }
+        // Check if user is already logged in
+        window.onload = function() {
+            const user = localStorage.getItem('vintitUser');
+            if (user) {
+                const userData = JSON.parse(user);
+                if (userData.name !== 'Guest') {
+                    showToast('Welcome back! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = 'yoon.html';
+                    }, 1000);
+                }
             }
         };
-
-        // Wardrobe Functions
-        function showAddItemModal() {
-            document.getElementById('addItemModal').classList.add('active');
-            document.getElementById('mainCategory').value = '';
-            document.getElementById('itemSubcategory').disabled = true;
-            document.getElementById('itemSubcategory').innerHTML = '<option value="">Select main category first...</option>';
-        }
-
-        function updateSubcategories() {
-            const mainCat = document.getElementById('mainCategory').value;
-            const subcatSelect = document.getElementById('itemSubcategory');
-            
-            if (!mainCat) {
-                subcatSelect.disabled = true;
-                subcatSelect.innerHTML = '<option value="">Select main category first...</option>';
-                return;
-            }
-
-            const categories = categoryData[mainCat];
-            subcatSelect.disabled = false;
-            subcatSelect.innerHTML = '<option value="">Select subcategory...</option>';
-            
-            Object.keys(categories).forEach(key => {
-                const cat = categories[key];
-                const optgroup = document.createElement('optgroup');
-                optgroup.label = cat.label;
-                
-                cat.items.forEach(item => {
-                    const option = document.createElement('option');
-                    option.value = `${key}:${item}:${cat.icon}`;
-                    option.textContent = item;
-                    optgroup.appendChild(option);
-                });
-                
-                subcatSelect.appendChild(optgroup);
-            });
-        }
-
-        function addItem() {
-            const title = document.getElementById('itemTitle').value;
-            const mainCat = document.getElementById('mainCategory').value;
-            const subcatValue = document.getElementById('itemSubcategory').value;
-            
-            if (!title || !mainCat || !subcatValue) {
-                showToast('Please fill all fields');
-                return;
-            }
-
-            const [category, itemType, icon] = subcatValue.split(':');
-
-            wardrobe.push({
-                id: Date.now(),
-                title,
-                mainCategory: mainCat,
-                category,
-                itemType,
-                icon
-            });
-
-            addCredits(10);
-            closeModal('addItemModal');
-            saveData();
-            updateUI();
-            document.getElementById('itemTitle').value = '';
-            document.getElementById('mainCategory').value = '';
-            document.getElementById('itemSubcategory').value = '';
-        }
-
-        function renderWardrobe() {
-            const grid = document.getElementById('wardrobeGrid');
-            if (wardrobe.length === 0) {
-                grid.innerHTML = '<div class="empty-state"><div class="empty-state-icon">👔</div><p>No items yet. Add your first piece!</p></div>';
-                return;
-            }
-
-            grid.innerHTML = wardrobe.map(item => `
-                <div class="item-card">
-                    <button class="delete-btn" onclick="deleteItem(${item.id})">×</button>
-                    <div class="item-img">${item.icon}</div>
-                    <div style="font-weight: 600; font-size: 14px;">${item.title}</div>
-                    <div style="font-size: 12px; color: #999;">${item.itemType || item.category}</div>
-                </div>
-            `).join('');
-        }
-
-        function deleteItem(id) {
-            wardrobe = wardrobe.filter(item => item.id !== id);
-            saveData();
-            updateUI();
-            showToast('Item removed');
-        }
-
-        // Stylist Functions
-        function renderStylistSelection() {
-            const grid = document.getElementById('stylistSelection');
-            if (wardrobe.length === 0) {
-                grid.innerHTML = '<div class="empty-state"><p>Add items to your wardrobe first!</p></div>';
-                return;
-            }
-
-            grid.innerHTML = wardrobe.map(item => `
-                <div class="item-card ${selectedItems.includes(item.id) ? 'selected' : ''}" 
-                     onclick="toggleItemSelection(${item.id})">
-                    <div class="item-img">${item.icon}</div>
-                    <div style="font-weight: 600; font-size: 14px;">${item.title}</div>
-                </div>
-            `).join('');
-        }
-
-        function toggleItemSelection(id) {
-            const index = selectedItems.indexOf(id);
-            if (index >= 0) {
-                selectedItems.splice(index, 1);
-            } else {
-                selectedItems.push(id);
-            }
-            renderStylistSelection();
-        }
-
-        function generateOutfit() {
-            if (selectedItems.length < 2) {
-                showToast('Select at least 2 items!');
-                return;
-            }
-
-            const outfit = selectedItems.map(id => 
-                wardrobe.find(item => item.id === id)
-            );
-
-            const result = document.getElementById('outfitResult');
-            result.innerHTML = `
-                <div class="outfit-display">
-                    <h3 style="color: #ff8210; margin-bottom: 15px;">Your Outfit ✨</h3>
-                    <div class="outfit-items">
-                        ${outfit.map(item => `<div class="outfit-item">${item.icon}</div>`).join('')}
-                    </div>
-                    <p style="text-align: center; margin-top: 15px; color: #666;">Perfect combination!</p>
-                </div>
-            `;
-
-            addCredits(20);
-        }
-
-        function clearSelection() {
-            selectedItems = [];
-            document.getElementById('outfitResult').innerHTML = '';
-            renderStylistSelection();
-        }
-
-        // Stylist Chatbot Functions
-        function switchStylistTab(tabName) {
-            document.querySelectorAll('.stylist-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.querySelectorAll('.stylist-tab-content').forEach(content => {
-                content.style.display = 'none';
-            });
-            
-            event.currentTarget.classList.add('active');
-            document.getElementById(tabName + 'Tab').style.display = 'block';
-        }
-        
-        function openChatInterface() {
-            document.getElementById('chatIconView').style.display = 'none';
-            document.getElementById('chatInterface').style.display = 'block';
-        }
-        
-        function closeChatInterface() {
-            document.getElementById('chatIconView').style.display = 'block';
-            document.getElementById('chatInterface').style.display = 'none';
-        }
-        
-        function selectEvent(eventType) {
-            selectedEvent = eventType;
-            
-            document.querySelectorAll('.event-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
-            
-            generateRecommendations(eventType);
-            
-            addMessage(`I need an outfit for a ${getEventName(eventType)}.`, 'user');
-            
-            setTimeout(() => {
-                addMessage(`Great choice! Here are some outfit recommendations for your ${getEventName(eventType)} using items from your wardrobe:`, 'bot');
-            }, 500);
-        }
-        
-        function getEventName(eventType) {
-            const eventNames = {
-                'casual': 'casual day out',
-                'work': 'work/office event',
-                'date': 'date night',
-                'formal': 'formal event',
-                'party': 'party/night out',
-                'sports': 'sports/active occasion'
-            };
-            return eventNames[eventType] || eventType;
-        }
-        
-        function generateRecommendations(eventType) {
-            const recommendationsContainer = document.getElementById('recommendations');
-            
-            if (wardrobe.length === 0) {
-                recommendationsContainer.innerHTML = `
-                    <div class="empty-state">
-                        <p>No items in your wardrobe yet. Add some items first!</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            const suitableItems = filterItemsByEvent(wardrobe, eventType);
-            
-            if (suitableItems.length === 0) {
-                recommendationsContainer.innerHTML = `
-                    <div class="empty-state">
-                        <p>No suitable items found for this event. Try adding more items to your wardrobe!</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            const tops = suitableItems.filter(item => 
-                item.category === 'tops' || item.category === 'shirts' || 
-                (item.mainCategory && categoryData[item.mainCategory] && 
-                 (categoryData[item.mainCategory].tops || categoryData[item.mainCategory].shirts))
-            );
-            
-            const bottoms = suitableItems.filter(item => 
-                item.category === 'bottoms' || item.category === 'pants' || 
-                (item.mainCategory && categoryData[item.mainCategory] && 
-                 categoryData[item.mainCategory].bottoms)
-            );
-            
-            const dresses = suitableItems.filter(item => 
-                item.category === 'dresses' || 
-                (item.mainCategory && categoryData[item.mainCategory] && 
-                 categoryData[item.mainCategory].dresses)
-            );
-            
-            const outerwear = suitableItems.filter(item => 
-                item.category === 'outerwear' || 
-                (item.mainCategory && categoryData[item.mainCategory] && 
-                 categoryData[item.mainCategory].outerwear)
-            );
-            
-            const shoes = suitableItems.filter(item => 
-                item.category === 'shoes' || 
-                (item.mainCategory && categoryData[item.mainCategory] && 
-                 categoryData[item.mainCategory].shoes)
-            );
-            
-            const accessories = suitableItems.filter(item => 
-                item.category === 'accessories' || 
-                (item.mainCategory && categoryData[item.mainCategory] && 
-                 (categoryData[item.mainCategory].accessories || 
-                  categoryData[item.mainCategory].jewelry || 
-                  categoryData[item.mainCategory].bags))
-            );
-            
-            let recommendationsHTML = '<h3 style="color: #ff8210; margin-bottom: 15px;">Recommended Outfits</h3>';
-            
-            if (tops.length > 0 && bottoms.length > 0) {
-                const randomTop = tops[Math.floor(Math.random() * tops.length)];
-                const randomBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
-                const randomShoes = shoes.length > 0 ? shoes[Math.floor(Math.random() * shoes.length)] : null;
-                const randomOuterwear = outerwear.length > 0 ? outerwear[Math.floor(Math.random() * outerwear.length)] : null;
-                const randomAccessory = accessories.length > 0 ? accessories[Math.floor(Math.random() * accessories.length)] : null;
-                
-                recommendationsHTML += `
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 15px;">
-                        <h4 style="margin-bottom: 10px; color: #333;">Outfit Combination 1</h4>
-                        <div class="recommendation-item">
-                            <div class="recommendation-icon">${randomTop.icon || '👕'}</div>
-                            <div class="recommendation-details">
-                                <div class="recommendation-title">${randomTop.title}</div>
-                                <div class="recommendation-category">${randomTop.itemType || randomTop.category}</div>
-                            </div>
-                        </div>
-                        <div class="recommendation-item">
-                            <div class="recommendation-icon">${randomBottom.icon || '👖'}</div>
-                            <div class="recommendation-details">
-                                <div class="recommendation-title">${randomBottom.title}</div>
-                                <div class="recommendation-category">${randomBottom.itemType || randomBottom.category}</div>
-                            </div>
-                        </div>
-                        ${randomShoes ? `
-                        <div class="recommendation-item">
-                            <div class="recommendation-icon">${randomShoes.icon || '👟'}</div>
-                            <div class="recommendation-details">
-                                <div class="recommendation-title">${randomShoes.title}</div>
-                                <div class="recommendation-category">${randomShoes.itemType || randomShoes.category}</div>
-                            </div>
-                        </div>
-                        ` : ''}
-                        ${randomOuterwear ? `
-                        <div class="recommendation-item">
-                            <div class="recommendation-icon">${randomOuterwear.icon || '🧥'}</div>
-                            <div class="recommendation-details">
-                                <div class="recommendation-title">${randomOuterwear.title}</div>
-                                <div class="recommendation-category">${randomOuterwear.itemType || randomOuterwear.category}</div>
-                            </div>
-                        </div>
-                        ` : ''}
-                        ${randomAccessory ? `
-                        <div class="recommendation-item">
-                            <div class="recommendation-icon">${randomAccessory.icon || '👜'}</div>
-                            <div class="recommendation-details">
-                                <div class="recommendation-title">${randomAccessory.title}</div>
-                                <div class="recommendation-category">${randomAccessory.itemType || randomAccessory.category}</div>
-                            </div>
-                        </div>
-                        ` : ''}
-                        <button class="btn" onclick="saveOutfit([${randomTop.id}, ${randomBottom.id}${randomShoes ? ', ' + randomShoes.id : ''}${randomOuterwear ? ', ' + randomOuterwear.id : ''}${randomAccessory ? ', ' + randomAccessory.id : ''}])" style="margin-top: 10px;">Save This Outfit</button>
-                    </div>
-                `;
-            }
-            
-            if (dresses.length > 0) {
-                const randomDress = dresses[Math.floor(Math.random() * dresses.length)];
-                const randomShoes = shoes.length > 0 ? shoes[Math.floor(Math.random() * shoes.length)] : null;
-                const randomAccessory = accessories.length > 0 ? accessories[Math.floor(Math.random() * accessories.length)] : null;
-                
-                recommendationsHTML += `
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 15px;">
-                        <h4 style="margin-bottom: 10px; color: #333;">Outfit Combination 2</h4>
-                        <div class="recommendation-item">
-                            <div class="recommendation-icon">${randomDress.icon || '👗'}</div>
-                            <div class="recommendation-details">
-                                <div class="recommendation-title">${randomDress.title}</div>
-                                <div class="recommendation-category">${randomDress.itemType || randomDress.category}</div>
-                            </div>
-                        </div>
-                        ${randomShoes ? `
-                        <div class="recommendation-item">
-                            <div class="recommendation-icon">${randomShoes.icon || '👠'}</div>
-                            <div class="recommendation-details">
-                                <div class="recommendation-title">${randomShoes.title}</div>
-                                <div class="recommendation-category">${randomShoes.itemType || randomShoes.category}</div>
-                            </div>
-                        </div>
-                        ` : ''}
-                        ${randomAccessory ? `
-                        <div class="recommendation-item">
-                            <div class="recommendation-icon">${randomAccessory.icon || '💍'}</div>
-                            <div class="recommendation-details">
-                                <div class="recommendation-title">${randomAccessory.title}</div>
-                                <div class="recommendation-category">${randomAccessory.itemType || randomAccessory.category}</div>
-                            </div>
-                        </div>
-                        ` : ''}
-                        <button class="btn" onclick="saveOutfit([${randomDress.id}${randomShoes ? ', ' + randomShoes.id : ''}${randomAccessory ? ', ' + randomAccessory.id : ''}])" style="margin-top: 10px;">Save This Outfit</button>
-                    </div>
-                `;
-            }
-            
-            recommendationsContainer.innerHTML = recommendationsHTML;
-        }
-        
-        function filterItemsByEvent(items, eventType) {
-            return items.filter(item => {
-                const eventSuitability = {
-                    'casual': ['t-shirt', 'jeans', 'sneakers', 'casual dress', 'hoodie', 'shorts'],
-                    'work': ['shirt', 'blouse', 'trousers', 'blazer', 'dress shoes', 'skirt'],
-                    'date': ['dress', 'blouse', 'heels', 'jewelry'],
-                    'formal': ['suit', 'formal dress', 'dress shoes', 'tie', 'evening gown'],
-                    'party': ['party dress', 'heels', 'jewelry', 'clutch'],
-                    'sports': ['activewear', 'sneakers', 'sports bra', 'athletic shorts']
-                };
-                
-                const itemType = (item.itemType || item.category || '').toLowerCase();
-                
-                return eventSuitability[eventType].some(suitableType => 
-                    itemType.includes(suitableType.replace('-', ' ')) || suitableType.includes(itemType)
-                );
-            });
-        }
-        
-        function addMessage(text, sender) {
-            const chatMessages = document.getElementById('chatMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}`;
-            
-            const bubbleDiv = document.createElement('div');
-            bubbleDiv.className = 'message-bubble';
-            bubbleDiv.textContent = text;
-            
-            messageDiv.appendChild(bubbleDiv);
-            chatMessages.appendChild(messageDiv);
-            
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            
-            chatHistory.push({ text, sender });
-        }
-        
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const text = input.value.trim();
-            
-            if (text) {
-                addMessage(text, 'user');
-                input.value = '';
-                
-                setTimeout(() => {
-                    let response = "I'm here to help with outfit recommendations! Please select an event type above to get started.";
-                    
-                    if (selectedEvent) {
-                        response = `For your ${getEventName(selectedEvent)}, I recommend checking out the outfit combinations I've suggested above. Would you like me to generate more options?`;
-                    }
-                    
-                    addMessage(response, 'bot');
-                }, 1000);
-            }
-        }
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatInput = document.getElementById('chatInput');
-            if (chatInput) {
-                chatInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        sendMessage();
-                    }
-                });
-            }
-        });
-        
-        function saveOutfit(itemIds) {
-            showToast('Outfit saved to your collection!');
-            addCredits(25);
-            
-            addMessage('I saved this outfit to my collection!', 'user');
-            
-            setTimeout(() => {
-                addMessage('Great! Would you like recommendations for another event?', 'bot');
-            }, 1000);
-        }
-        
-        function initStylistChat() {
-            if (chatHistory.length === 0) {
-                document.getElementById('chatMessages').innerHTML = `
-                    <div class="message bot">
-                        <div class="message-bubble">
-                            Hi there! I'm your AI style assistant. I can help you create outfits for different occasions using items from your wardrobe. What event are you dressing for?
-                        </div>
-                    </div>
-                `;
-            }
-        }
-
-        // Exchange Functions
-        function showListItemModal() {
-            document.getElementById('listItemModal').classList.add('active');
-        }
-
-        function listItemForExchange() {
-            const title = document.getElementById('exchangeTitle').value;
-            const location = document.getElementById('exchangeLocation').value;
-            const condition = document.getElementById('exchangeCondition').value;
-
-            if (!title || !location || !condition) {
-                showToast('Please fill all fields');
-                return;
-            }
-
-            exchangeItems.push({
-                id: Date.now(),
-                title,
-                location,
-                condition: parseInt(condition),
-                author: userData.name
-            });
-
-            addCredits(15);
-            closeModal('listItemModal');
-            saveData();
-            updateUI();
-            document.getElementById('exchangeTitle').value = '';
-            document.getElementById('exchangeLocation').value = '';
-            document.getElementById('exchangeCondition').value = '';
-        }
-
-        function renderExchangeItems() {
-            const container = document.getElementById('exchangeItems');
-            if (exchangeItems.length === 0) {
-                container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🔄</div><p>No items available. Be the first to list!</p></div>';
-                return;
-            }
-
-            container.innerHTML = exchangeItems.map(item => `
-                <div class="post">
-                    <div style="font-weight: bold; color: #ff8210; margin-bottom: 5px;">${item.title}</div>
-                    <div style="font-size: 14px; color: #666;">📍 ${item.location}</div>
-                    <div style="font-size: 14px; color: #666;">⭐ Condition: ${item.condition}/10</div>
-                    <div style="font-size: 12px; color: #999; margin-top: 5px;">Listed by ${item.author}</div>
-                    <button class="btn" onclick="guarantee()" style="margin-top: 10px;">Check the hygiene and quality guarantee</button>
-                    <button class="btn" onclick="requestSwap(${item.id})" style="margin-top: 10px;">Request Swap</button>
-                </div>
-            `).join('');
-        }
-        function guarantee(){
-            alert("Here is the laundry certificate. It is safe to wear. It is worn just a few times.");
-        }
-
-        function requestSwap(id) {
-            alert('📤 The swap request has been sent successfully!!');
-            
-            userData.co2Saved += 5;
-            userData.waterSaved += 200;
-            userData.itemsReused += 1;
-            addCredits(30);
-            exchangeItems = exchangeItems.filter(item => item.id !== id);
-            showToast('Swap completed! 🎉');
-            saveData();
-            updateUI();
-        }
-
-        // Community Functions
-        function showCreatePostModal() {
-            document.getElementById('createPostModal').classList.add('active');
-            currentPostImage = null;
-            document.getElementById('postImagePreview').style.display = 'none';
-        }
-
-        function createPost() {
-            const title = document.getElementById('postTitle').value;
-            const body = document.getElementById('postBody').value;
-
-            if (!title || !body) {
-                showToast('Please fill all fields');
-                return;
-            }
-
-            communityPosts.unshift({
-                id: Date.now(),
-                title,
-                body,
-                author: userData.name,
-                likes: 0,
-                liked: false,
-                image: currentPostImage,
-                comments: [],
-                timestamp: new Date().toLocaleString()
-            });
-
-            addCredits(10);
-            closeModal('createPostModal');
-            currentPostImage = null;
-            saveData();
-            updateUI();
-            document.getElementById('postTitle').value = '';
-            document.getElementById('postBody').value = '';
-            document.getElementById('postImagePreview').style.display = 'none';
-        }
-
-        function renderCommunityPosts() {
-            const container = document.getElementById('communityPosts');
-            if (communityPosts.length === 0) {
-                container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">💬</div><p>No posts yet. Start the conversation!</p></div>';
-                return;
-            }
-
-            container.innerHTML = communityPosts.map(post => `
-                <div class="post">
-                    <div class="post-header">
-                        <span class="post-author">${post.author}</span>
-                        <span style="font-size: 11px; color: #999;">${post.timestamp}</span>
-                    </div>
-                    <div style="font-weight: bold; margin-bottom: 8px;">${post.title}</div>
-                    <div style="color: #666; font-size: 14px; margin-bottom: 8px;">${post.body}</div>
-                    ${post.image ? `<img src="${post.image}" alt="Post image" class="post-image">` : ''}
-                    
-                    <div class="post-actions">
-                        <button class="action-btn ${post.liked ? 'liked' : ''}" onclick="likePost(${post.id})">
-                            ${post.liked ? '❤️' : '🤍'} ${post.likes}
-                        </button>
-                        <button class="action-btn" onclick="toggleComments(${post.id})">
-                            💬 ${post.comments ? post.comments.length : 0}
-                        </button>
-                        <button class="action-btn" onclick="sharePost(${post.id})">
-                            📤 Share
-                        </button>
-                    </div>
-                    
-                    <div class="comments-section" id="comments${post.id}" style="display: none;">
-                        <div id="commentsList${post.id}">
-                            ${post.comments && post.comments.length > 0 ? 
-                                post.comments.map(comment => `
-                                    <div class="comment">
-                                        <div class="comment-author">${comment.author}</div>
-                                        <div class="comment-text">${comment.text}</div>
-                                    </div>
-                                `).join('') : 
-                                '<p style="color: #999; font-size: 13px; margin-bottom: 10px;">No comments yet</p>'
-                            }
-                        </div>
-                        <div class="comment-input-container">
-                            <input type="text" class="comment-input" id="commentInput${post.id}" 
-                                   placeholder="Write a comment..." 
-                                   onkeypress="if(event.key==='Enter') addComment(${post.id})">
-                            <button class="comment-submit" onclick="addComment(${post.id})">Post</button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function renderCommunityHighlights() {
-            const container = document.getElementById('communityHighlights');
-            const highlights = communityPosts.slice(0, 2);
-            
-            if (highlights.length === 0) {
-                container.innerHTML = '<p style="color: #999; font-size: 14px;">No posts yet</p>';
-                return;
-            }
-
-            container.innerHTML = highlights.map(post => `
-                <div class="post">
-                    <div style="font-weight: bold; color: #ff8210; margin-bottom: 5px;">${post.title}</div>
-                    <div style="font-size: 14px; color: #666;">${post.body.substring(0, 80)}${post.body.length > 80 ? '...' : ''}</div>
-                    <div style="font-size: 12px; color: #999; margin-top: 5px;">by ${post.author} • ${post.likes} likes</div>
-                </div>
-            `).join('');
-        }
-
-        function likePost(id) {
-            const post = communityPosts.find(p => p.id === id);
-            if (post) {
-                if (post.liked) {
-                    post.likes -= 1;
-                    post.liked = false;
-                } else {
-                    post.likes += 1;
-                    post.liked = true;
-                    addCredits(5);
-                }
-                saveData();
-                updateUI();
-            }
-        }
-
-        function toggleComments(postId) {
-            const commentsSection = document.getElementById(`comments${postId}`);
-            if (commentsSection.style.display === 'none') {
-                commentsSection.style.display = 'block';
-            } else {
-                commentsSection.style.display = 'none';
-            }
-        }
-
-        function addComment(postId) {
-            const input = document.getElementById(`commentInput${postId}`);
-            const commentText = input.value.trim();
-            
-            if (!commentText) {
-                showToast('Please write a comment');
-                return;
-            }
-            
-            const post = communityPosts.find(p => p.id === postId);
-            if (post) {
-                if (!post.comments) post.comments = [];
-                
-                post.comments.push({
-                    author: userData.name,
-                    text: commentText,
-                    timestamp: new Date().toLocaleString()
-                });
-                
-                input.value = '';
-                addCredits(5);
-                saveData();
-                updateUI();
-                
-                document.getElementById(`comments${postId}`).style.display = 'block';
-            }
-        }
-
-        function sharePost(postId) {
-            const post = communityPosts.find(p => p.id === postId);
-            if (post) {
-                const shareText = `Check out this post on SwapStyle:\n\n"${post.title}"\n${post.body}`;
-                
-                if (navigator.share) {
-                    navigator.share({
-                        title: post.title,
-                        text: shareText
-                    }).then(() => {
-                        showToast('Post shared!');
-                        addCredits(10);
-                    }).catch(() => {
-                        copyToClipboard(shareText);
-                    });
-                } else {
-                    copyToClipboard(shareText);
-                }
-            }
-        }
-
-        function copyToClipboard(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            document.body.appendChild(textarea);
-            textarea.select();
-            
-            try {
-                document.execCommand('copy');
-                showToast('Post copied to clipboard!');
-                addCredits(10);
-            } catch (err) {
-                showToast('Could not copy post');
-            }
-            
-            document.body.removeChild(textarea);
-        }
-
-        // Leaderboard Functions
-        function renderLeaderboard() {
-            const container = document.getElementById('leaderboardList');
-            if (leaderboardData.length === 0) {
-                container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🏆</div><p>Start earning credits to join the leaderboard!</p></div>';
-                return;
-            }
-
-            container.innerHTML = leaderboardData.slice(0, 10).map((user, index) => `
-                <div class="leaderboard-item">
-                    <div class="rank-badge">${index + 1}</div>
-                    <div style="flex: 1;">
-                        <div style="font-weight: bold;">${user.name}</div>
-                        <div style="font-size: 12px; color: #999;">${user.credits} credits</div>
-                    </div>
-                    ${index === 0 ? '<div style="font-size: 24px;">👑</div>' : ''}
-                </div>
-            `).join('');
-        }
-
-        // Utility Functions
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-            if (modalId === 'createPostModal') {
-                currentPostImage = null;
-                document.getElementById('postImagePreview').style.display = 'none';
-            }
-        }
-
-        // Sample Data with Expanded Wardrobe
-        function addSampleData() {
-            if (wardrobe.length === 0) {
-                wardrobe = [
-                    { id: 1, title: 'Blue Shirt', mainCategory: 'men', category: 'tops', itemType: 'Shirt', icon: '👕' },
-                    { id: 2, title: 'Jeans', mainCategory: 'men', category: 'bottoms', itemType: 'Jeans', icon: '👖' },
-                    { id: 3, title: 'Sneakers', mainCategory: 'men', category: 'shoes', itemType: 'Sneakers', icon: '👟' },
-                    { id: 4, title: 'Blazer', mainCategory: 'men', category: 'outerwear', itemType: 'Blazer', icon: '🧥' },
-                    { id: 5, title: 'Polo Shirt', mainCategory: 'men', category: 'tops', itemType: 'Polo', icon: '👕' },
-                    { id: 6, title: 'Chinos', mainCategory: 'men', category: 'bottoms', itemType: 'Chinos', icon: '👖' },
-                    { id: 7, title: 'Dress Shoes', mainCategory: 'men', category: 'shoes', itemType: 'Dress Shoes', icon: '👞' },
-                    { id: 8, title: 'Leather Jacket', mainCategory: 'men', category: 'outerwear', itemType: 'Jacket', icon: '🧥' },
-                    { id: 9, title: 'T-Shirt', mainCategory: 'men', category: 'tops', itemType: 'T-Shirt', icon: '👕' },
-                    { id: 10, title: 'Shorts', mainCategory: 'men', category: 'bottoms', itemType: 'Shorts', icon: '🩳' },
-                    { id: 11, title: 'Summer Dress', mainCategory: 'women', category: 'dresses', itemType: 'Casual Dress', icon: '👗' },
-                    { id: 12, title: 'Heels', mainCategory: 'women', category: 'shoes', itemType: 'Heels', icon: '👠' },
-                    { id: 13, title: 'Blouse', mainCategory: 'women', category: 'tops', itemType: 'Blouse', icon: '👚' },
-                    { id: 14, title: 'Skirt', mainCategory: 'women', category: 'bottoms', itemType: 'Skirt', icon: '👗' },
-                    { id: 15, title: 'Evening Dress', mainCategory: 'women', category: 'dresses', itemType: 'Evening Dress', icon: '👗' },
-                    { id: 16, title: 'Maxi Dress', mainCategory: 'women', category: 'dresses', itemType: 'Maxi Dress', icon: '👗' },
-                    { id: 17, title: 'Boots', mainCategory: 'women', category: 'shoes', itemType: 'Boots', icon: '👢' },
-                    { id: 18, title: 'Flats', mainCategory: 'women', category: 'shoes', itemType: 'Flats', icon: '🥿' },
-                    { id: 19, title: 'Cardigan', mainCategory: 'women', category: 'outerwear', itemType: 'Cardigan', icon: '🧥' },
-                    { id: 20, title: 'Leggings', mainCategory: 'women', category: 'bottoms', itemType: 'Leggings', icon: '👖' },
-                    { id: 21, title: 'Handbag', mainCategory: 'accessories', category: 'bags', itemType: 'Handbag', icon: '👜' },
-                    { id: 22, title: 'Sunglasses', mainCategory: 'accessories', category: 'sunglasses', itemType: 'Sunglasses', icon: '🕶️' },
-                    { id: 23, title: 'Necklace', mainCategory: 'accessories', category: 'jewelry', itemType: 'Necklace', icon: '📿' },
-                    { id: 24, title: 'Belt', mainCategory: 'accessories', category: 'belts', itemType: 'Leather Belt', icon: '👔' },
-                    { id: 25, title: 'Cap', mainCategory: 'accessories', category: 'hats', itemType: 'Baseball Cap', icon: '🧢' }
-                ];
-            }
-
-            if (exchangeItems.length === 0) {
-                exchangeItems = [
-                    { id: 101, title: 'Vintage Jacket', location: 'Downtown', condition: 8, author: 'Sarah' },
-                    { id: 102, title: 'Designer Bag', location: 'Uptown', condition: 9, author: 'Mike' }
-                ];
-            }
-
-            if (communityPosts.length === 0) {
-                communityPosts = [
-                    {
-                        id: 201,
-                        title: 'My First Swap!',
-                        body: 'Just completed my first clothing swap and saved so much money! This app is amazing.',
-                        author: 'Emma',
-                        likes: 12,
-                        liked: false,
-                        image: null,
-                        comments: [
-                            { author: 'Alex', text: 'Congratulations! Keep it up!', timestamp: new Date().toLocaleString() },
-                            { author: 'Sarah', text: 'That\'s awesome! Welcome to the community!', timestamp: new Date().toLocaleString() }
-                        ],
-                        timestamp: new Date().toLocaleString()
-                    },
-                    {
-                        id: 202,
-                        title: 'Sustainability Tips',
-                        body: 'Remember to wash clothes in cold water to save energy and extend garment life!',
-                        author: 'Alex',
-                        likes: 8,
-                        liked: false,
-                        image: null,
-                        comments: [],
-                        timestamp: new Date().toLocaleString()
-                    }
-                ];
-            }
-
-            if (leaderboardData.length === 0) {
-                leaderboardData = [
-                    { name: 'Emma', credits: 520 },
-                    { name: 'Alex', credits: 480 },
-                    { name: 'Sarah', credits: 450 },
-                    { name: 'Mike', credits: 410 }
-                ];
-            }
-
-            saveData();
-            updateUI();
-        }
-
-        // Close modals when clicking outside
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                }
-            });
-        });
-
-        // Initialize app on load
-        init();
     </script>
 </body>
 </html>
-
-
